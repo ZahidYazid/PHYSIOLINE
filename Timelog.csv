@@ -7,18 +7,18 @@
 Date,Duration,Type,Description of completed work,Challenges and/or Next steps
 8/25/23,1 hour,Other,1-    I attended the orientation session on zoom meeting.,
 ,3 hours,Other,"2-    I reviewed to the syllabus, and the orientation video, and CISC.4900 course calendar.",
-8/26/23,1 hour,Documentation,1-    I looked at all the templates and submission criteria.,
+8/26/23,1 hour,Research,1-    I looked at all the templates and submission criteria.,
 8/27/23,1 hour,Research,1-    I took look on the internet the principal tools to get a good project.,I will submit the first attempt of Orientation Quiz.
 ,2 hours,Other,2-    I prepared and submitted the intake survey via google form ,
 8/28/23,1 hour,Research,1-    I took look to the internet some projects that were developed by student in CISC. 4900 class.,I’m going to start doing the Project Proposal Survey.
-,2:30 hours,Other,2-    I attended the CISC.4900 class on zoom meeting.,
+,2.5 hours,Other,2-    I attended the CISC.4900 class on zoom meeting.,
 ,1 hour,Other,3-    I prepared and submitted the first attempt of Orientation Quiz.,
-8/29/23,2 hours,Other,1-    I started to prepare the Project Proposal Survey.,I will finish the Project Proposal Survey and submit the second attempt of Orientation Quiz.
-,1 hour,Documentation,2-    I took look in the project report template.,
+8/29/23,2 hours,Design,1-    I started to prepare the Project Proposal Survey.,I will finish the Project Proposal Survey and submit the second attempt of Orientation Quiz.
+,1 hour,Research,2-    I took look in the project report template.,
 8/30/23,2 hours,Other,1-    I finished to prepare the Project Proposal Survey and I submitted it.,Preparation of the Project Proposal was challenging due to the quantity and quality of information required.
-,1 hour,,2-    I prepared and submitted the second attempt of Orientation Quiz.,
-,1 hour,,"3-    I sent an Email to my professor of Software Engineering Professor Hui Chen, and I explained the details of the project via the project proposal.",
-,2 hours,,4-    I started to prepare the design Documents and figure out what I should put on it.,
+,1 hour,Other,2-    I prepared and submitted the second attempt of Orientation Quiz.,
+,1 hour,Supervisor email,"3-    I sent an Email to my professor of Software Engineering Professor Hui Chen, and I explained the details of the project via the project proposal.",
+,2 hours,Design,4-    I started to prepare the design Documents and figure out what I should put on it.,
 8/31/23,1 hour,Research,"1-    Write out reflections on the time spent on the project so far, and prepare time log for submission ",
 Reflection,,,,
 I was looking for a project to work on and also gathering my resources and tools together.,,,,
@@ -35,18 +35,19 @@ By logging the time spent on my tasks I can see how it builds up to meeting the 
 ,,,25 hours accumulated in this period,
 ,,,,
 Date,Duration,Type,Description of completed work,Challenges and/or Next steps
-9/1/23,1 hour,Documentation,1-    I looked to some template on the internet.,Build the users friendly html pages.
-,2 hours,Develop,2-    I started to build the main page index.html.,
-9/2/23,2 hours,Develop,1-    I created the style.css file to design the html pages.,I will study a practice all languages that are involved in building a web application.
+9/1/23,1 hour,Research,1-    I looked to some template on the internet.,Build the users friendly html pages.
+,,Design,2-    I started to build the design of the main page index.php,
+,2 hours,Coding,3-    I started to code the html code on the Sublime Text,
+9/2/23,2 hours,Coding,1-    I created the CSS file to buld the features in the html pages.,I will study a practice all languages that are involved in building a web application.
 ,1 hour,Research,2-    I looked to some web site in internet.,
-9/3/23,2 hours,Documentation,1-    I took a html course on the internet.,
-,2 hours,,2-    I practiced examples of html pages.,
-9/4/23,2 hours,Documentation,1-    I took a CSS course on the internet.,
-,2 hours,,2-     I practiced examples of CSS in html pages.,
-9/5/23,3 hours,Other,1-    I started to work on the Design documents.,
-9/6/23,2 hours,Other,1-    I took a JavaScript language course on the internet.,The challenge is how I will start to do this huge project.
-,2 hours,,2-    I practiced examples of JavaScript language in html pages.,
-9/7/23,4 hours,Other,"1-    I worked on the project web application, and I tried to apply what I learned from the courses.",
+9/3/23,2 hours,Learning,1-    I took a html course on the internet.,
+,2 hours,Training,2-    I practiced examples of html pages.,
+9/4/23,2 hours,Learning,1-    I took a CSS course on the internet.,
+,2 hours,Training,2-     I practiced examples of CSS in html pages.,
+9/5/23,3 hours,Design,1-    I started to work on the Design documents.,
+9/6/23,2 hours,Learning,1-    I took a JavaScript language course on the internet.,The challenge is how I will start to do this huge project.
+,2 hours,Training,2-    I practiced examples of JavaScript language in html pages.,
+9/7/23,4 hours,Design,"1-    I worked on the project web application, and I tried to apply what I learned from the courses.",
 Reflection,,,,
 "I was looking for a project to work on and also gathering my resources and tools together. To find a project I had to figure out who to contact, and then how to make time to speak with them. ",,,,
 What were the main challenges during this phase?,,,,
@@ -58,21 +59,20 @@ The documentation and study that I learned will help me to do this project.,,,,
 ,,,,
 ,,,,
 ,,,Time logs 9/8/2023 to 9/14/2023,
-,,,26 hours accumulated in this period,
+,,,25 hours accumulated in this period,
 ,,,,
 Date,Duration,Type,Description of completed work,Challenges and/or Next steps
-9/8/23,2 hours,Other,1-    I took a PHP/MYSQL language course on the internet.,The challenge is how to use all these language that learned in my project.
-,2 hours,,2-    I practiced examples of PHP language in html pages.,
-9/9/23,4 hours,Other,"1-    I worked on the project web application, and I tried to apply what I learned from the courses.",
+9/8/23,2 hours,Learning,1-    I took a PHP/MYSQL language course on the internet.,The challenge is how to use all these language that learned in my project.
+,2 hours,Treaning,2-    I practiced examples of PHP language in html pages.,
+9/9/23,4 hours,Design,"1-    I worked on the project web application, and I tried to apply what I learned from the courses.",
 9/10/23,3 hours,Other,"1-    I prepared the Design documents, and I added all diagrams that need to be in this document.",
-,2 hours,,"2-    I finished the design document, and I sent a copy to my supervisor.",
+,1 hours,Supervisor email,2-    I sent a copy to my supervisor.,
 9/11/23,1 hour,Other,1-    I submitted the design documents.,
 ,2 hours,Other,"2-    I created image folder in my project folder, and I prepared some convenient images.",
-9/12/23,2 hours,Coding,1-    I started to develop my project.,
-,,,2-    I created the home page “index.html” and style.css file.,
-,2 hours,,,
+9/12/23,2 hours,Design,1-    I started to develop my project.,
+,2 hours,Coding,2-    I created the home page “index.html” and style.css file.,
 9/13/23,2 hours,Coding,1-    I created “script.js” file and I did some code that related to “index.html” file.,
-,2 hours,,2-    which I bult the menu bar and I add to it some icons with the CSS features.,
+,2 hours,Design,2-    I bult the menu bar and I add to it some icons with the CSS features.,
 9/14/23,2 hour,Coding,1-    I did some modification on the “style.css” file that made the website easier to use.,The challenge is how to integrate the PHP code in the web application.
 Reflection,,,,
 "I was looking for a project to work on and also gathering my resources and tools together. To find a project I had to figure out who to contact, and then how to make time to speak with them. ",,,,
@@ -85,21 +85,21 @@ I installed the XAMPP that make the server accept to code the PHP code in HTML p
 ,,,,
 ,,,,
 ,,,Time logs 9/15/2023 to 9/21/2023,
-,,,23 hours accumulated in this period,
+,,,25 hours accumulated in this period,
 ,,,,
 Date,Duration,Type,Description of completed work,Challenges and/or Next steps
 9/15/23,2 hours,Other,1-    I installed xampp to use Apache web server.,
-,2 hours,Documentation,2-    I learned how to use it and I how to display my project on browser.,
+,2 hours,Learning,2-    I learned how to use it and I how to display my project on browser.,
 9/16/23,2 hours,Other,1-    I started to work on Survey: Version control repository and project management board.,
-,2 hours,Documentation,2-    I saw some videos that explain the programing of the user login and register.,
+,2 hours,Research,2-    I saw some videos that explain the programing of the user login and register.,
 9/17/23,2 hours,Coding,1-    I changed the “index.html” to “index.php” file and I displayed it in the browser.,
-,2 hours,Documentation,2-    I saw some videos that explain the php programs code.,
+,2 hours,Research,2-    I saw some videos that explain the php programs code.,
 9/18/23,2 hours,Other,1-    I finished and submitted the Survey: Version control repository and project management board.,I will start to develop the responsive code in php that has related to the database in MYSQL.
-,1 hour,Other,2-    I sent an Email to my supervisor which I attached a file that has questions that I responded in the survey.,
-9/19/23,2 hour,Implementation,"1-    I created the database that called “PHYSIO_DATA” and I created some table as “users, product, etc..”",
-9/20/23,2 hour,Coding,1-    I created the home page “index.php.”,
-,2 hour,,2-    I designed some attributes.,
-9/21/23,2 hour,Coding,1-    I developed the header page “header.php” and footer page “footer.php”,The Challenge that I met is how to connect the HTML/PHP pages to the database.
+,1 hour,Supervisor emails,2-    I sent an Email to my supervisor which I attached a file that has questions that I responded in the survey.,
+9/19/23,2 hour,Coding,"1-    I created the database that called “PHYSIO_DATA” and I created some table as “users, product, etc..”",
+9/20/23,2 hour,Coding,1-    I modified some attributes in the home page “index.php.”,
+,2 hour,Design,2-    I designed some attributes.,
+9/21/23,4 hour,Coding,1-    I developed the header page “header.php” and footer page “footer.php”,The Challenge that I met is how to connect the HTML/PHP pages to the database.
 Reflection,,,,
 "I was looking for a project to work on and also gathering my resources and tools together. To find a project I had to figure out who to contact, and then how to make time to speak with them. ",,,,
 What were the main challenges during this phase?,,,,
@@ -114,20 +114,20 @@ The documentation and the examples of other programmers help me to solve that.,,
 ,,,28 hours accumulated in this period,
 ,,,,
 Date,Duration,Type,Description of completed work,Challenges and/or Next steps
-9/22/23,2 hours,Other,1-    I built the connect with the database in page “connect.php” and I connected all pages to the database with “connect.php”,
-9/23/23,2 hours,Documentation,"1-    I watched some videos of HTML, CSS, JAVASCRIPT and PHP/MYSQL.",The challenge that I have is how to choose the design of the home page.
-,2 hours,Implementation,"2-    I designed some features in home, header and footer pages on CSS.",
+9/22/23,2 hours,Coding,1-    I built the connect with the database in page “connect.php” and I connected all pages to the database with “connect.php”,
+9/23/23,2 hours,Research,"1-    I watched some videos of HTML, CSS, JAVASCRIPT and PHP/MYSQL.",The challenge that I have is how to choose the design of the home page.
+,2 hours,Design,"2-    I designed some features in home, header and footer pages on CSS.",
 9/24/23,2 hours,Coding,"1-    I built the body of the home page “index.php”, I added a images, titles, and paragraphs.",The next step is to create the login logout and register pages and link them to the profile user menu.
-,2 hours,Implementation,2-    I designed the body of home page by CSS coding.,
+,2 hours,Design,2-    I designed the body of home page by CSS coding.,
 9/25/23,2 hours,Coding,1-    I built the login page “login.php.” on HTML/PHP coding.,
-,2 hours,Implementation,2-    I designed the attribute of login page on CSS coding.,
+,2 hours,Design,2-    I designed the attribute of login page on CSS coding.,
 ,2 hours,Coding,3-    I developed logout page “logout.php.” on PHP coding.,
 9/26/23,2 hours,Coding,1-    I built the register page “register.php.” on HTML/PHP coding.,
-,2 hours,Implementation,2-    I designed the attribute of register page on CSS coding.,
+,2 hours,Design,2-    I designed the attribute of register page on CSS coding.,
 9/27/23,2 hours,Coding ,1-    I built the update account page “update_account.php.” on HTML/PHP coding.,"The challenge is how to implement the code that gather all user pages (login, register and update account) to build a clear manipulation to the user."
-,2 hours,Implementation,2-    I designed the attribute of update account page on CSS coding.,
-9/28/23,2 hours,Implementation,1-    I implemented the login page by clicking on the login button on the menu in profile user.,
-,2 hours,Implementation,2-    I implemented the register page by clicking on the register button on the menu in profile user.,
+,2 hours,Design,2-    I designed the attribute of update account page on CSS coding.,
+9/28/23,2 hours,Coding ,1-    I implemented the login page by clicking on the login button in the profile user's menu.,
+,2 hours,Coding,2-    I implemented the register page by clicking on the register button on the menu in profile user.,
 Reflection,,,,
 "I was looking for a project to work on and also gathering my resources and tools together. To find a project I had to figure out who to contact, and then how to make time to speak with them. ",,,,
 What were the main challenges during this phase?,,,,
@@ -139,20 +139,20 @@ What were the main challenges during this phase?,,,,
 ,,,,
 ,,,,
 ,,,Time logs 9/29/2023 to 10/5/2023,
-,,,25 hours accumulated in this period,
+,,,28 hours accumulated in this period,
 ,,,,
 Date,Duration,Type,Description of completed work,Challenges and/or Next steps
-9/29/23,2 hours,Implementation,1-    I implement the update account page by clicking on update account on the profile user menu.,
-9/30/23,3 hours,Implementation,"1-    I implement the messages of all cases that will happen in login, register, and update account pages.",
-10/1/23,2 hours,Coding,1-    I completed the User Registration and Account Management in term of Implementation.,
-10/2/23,3 hours,Testing,1-    I tried all attributes and buttons in the user account management.,The next step will be the creation of contact and about us pages.
-,,,2-    I prepared the demo1 which I did the 2 mins video by quick time player.,
-10/3/23,3 hours,implementation,"1-    I created the contact page and implemented the design of the page which I used for that the HTML, PHP, CSS.",The challenge is what I have to do to get a nice design.
-,3 hours,,2-    I created the about us page and I developed the exact design for that.,
-10/4/23,3 hours,Implementation,"1-    I created products page, and I added all attribute to insert the products to the database.",
-,3 hours,implementation,2-    I implemented PHP code to insert the text and images in the products table.,
-10/5/23,3 hours,implementation,"1-    I created the admin product management page which the Admins need to add, update, or remove products.",The next step is to build the home page and display all type of products that user need.
-,,,2-    I implemented the contact form that has the message of the users.,
+9/29/23,2 hours,Coding,1-    I implement the update account page by clicking on update account on the profile user menu.,
+9/30/23,3 hours,Coding,"1-    I implement the messages of all cases that will happen in login, register, and update account pages.",
+10/1/23,2 hours,Design,1-    I completed the User Registration and Account Management.,
+10/2/23,1 hours,Testing,1-    I tried all attributes and buttons in the user account management.,The next step will be the creation of contact and about us pages.
+,2 hours,Other,2-    I prepared the demo1 which I did the 2 mins video by quick time player.,
+10/3/23,3 hours,Design,"1-    I created the contact page and implemented the design of the page which I used for that the HTML, PHP, CSS.",The challenge is what I have to do to get a nice design.
+,3 hours,Design,2-    I created the about us page and I developed the exact design for that.,
+10/4/23,3 hours,Coding,"1-    I created products page, and I added all attribute to insert the products to the database.",
+,3 hours,Coding,2-    I implemented PHP code to insert the text and images in the products table.,
+10/5/23,3 hours,Coding,"1-    I created the admin product management page which the Admins need to add, update, or remove products.",The next step is to build the home page and display all type of products that user need.
+,3 hours,Coding,2-    I implemented the contact form that has the message of the users.,
 Reflection,,,,
 "I was looking for a project to work on and also gathering my resources and tools together. To find a project I had to figure out who to contact, and then how to make time to speak with them.",,,,
 What were the main challenges during this phase?,,,,
@@ -167,13 +167,13 @@ I got a challenge that what I have to make in the design of the pages to get I n
 ,,,24 hours accumulated in this period,
 ,,,,
 Date,Duration,Type,Description of completed work,Challenges and/or Next steps
-10/6/23,3 hours,implementation,"1-    I continued to design the home page. In the first part, I add the slide form of the promotion of the products. I used the CSS style and JAVASCRIPT script.",The challenge that I met in this part is what script I should make to get the page swipe.
-10/7/23,3 hours,implementation,1-    I implemented the second section in the home page which I added the products by category to make it easier for the user. Which I used the CSS style and JAVASCRIPT script.,
-10/8/23,3 hours,implementation,"1-    Implemented the third section of the home page that is the display of the latest product that the web application content. In this part, I used the CSS style and JAVASCRIPT script.",The next step is to create the searching page.
-10/9/23,4 hours,Other,1-    I crated the Product Browsing and Search page which Users want to explore and find physiotherapy supplies.,The challenge is how to do the code that allow the users find the want product.
-10/10/23,4 hours,implementation,1-    I made some change on the home page in the CSS file and JS file.,The next step is to start the implementation of adding product to shopping cart.
-10/11/23,3 hours,implementation,"1-    I started to do the Adding Products to Cart, which Users want to select products for purchase.",
-10/12/23,2 hours,Implementation,1-    I developed the design of searching page and I implement the code to filter the product to find the searching one.,The next step is Product Reviews and Ratings section.
+10/6/23,3 hours,Design,"1-    I continued to design the home page. In the first part, I add the slide form of the promotion of the products. I used the CSS style and JAVASCRIPT script.",The challenge that I met in this part is what script I should make to get the page swipe.
+10/7/23,3 hours,Design,1-     I used the CSS style to implement the products by category in the second section and the latest product in the third section of the home page that the web application content.,
+10/8/23,3 hours,Coding,"1-    I developed the code that make the all sections easier to use  by the users. In this part, I used the JAVASCRIPT script.",The next step is to create the searching page.
+10/9/23,4 hours,Coding,1-    I crated the Product Browsing and Search page which Users want to explore and find physiotherapy supplies.,The challenge is how to do the code that allow the users find the want product.
+10/10/23,4 hours,Coding,1-    I made some change on the home page in the CSS file and JS file.,The next step is to start the implementation of adding product to shopping cart.
+10/11/23,3 hours,Coding,"1-    I started to do the Adding Products to Cart, which Users want to select products for purchase.",
+10/12/23,2 hours,Design,1-    I developed the design of searching page and I implement the code to filter the product to find the searching one.,The next step is Product Reviews and Ratings section.
 ,2 hours,Other,2-    I continued the timlog file.,
 Reflection,,,,
 "I was looking for a project to work on and also gathering my resources and tools together. To find a project I had to figure out who to contact, and then how to make time to speak with them. ",,,,
@@ -186,14 +186,14 @@ The ideal script that makes the section of images and paragraphs swipe.,,,,
 ,,,,
 ,,,,
 ,,,Time logs 10/13/2023 to 10/19/2023,
-,,,… hours accumulated in this period,
+,,,12 hours accumulated in this period,
 ,,,,
 Date,Duration,Type,Description of completed work,Challenges and/or Next steps
-10/13/23,4 hours,implementation,"1-    I started the Product Reviews and Ratings section, which Users can read about others' experiences with products.",
+10/13/23,4 hours,Coding,"1-    I started the Product Reviews and Ratings section, which Users can read about others' experiences with products.",Next step I will submit the demo 1.
 10/14/23,2 hours,Other,1-    I submitted the demo1.,
-,2 hours,,2-    I added some change to the project management broad in GitHub ,
+,2 hours,Other,2-    I added some change to the project management broad in GitHub ,
 10/15/23,2 hours,Other,1-    I did change on project management  broad in GitHub.,
-10/16/23,,,,
+10/16/23,2 hours,Other,1-    I updated the Timelog.csv and I added it to the repository in GitHub.,
 10/17/23,,,,
 10/18/23,,,,
 ,,,,
@@ -202,7 +202,7 @@ Date,Duration,Type,Description of completed work,Challenges and/or Next steps
 Reflection,,,,
 "I was looking for a project to work on and also gathering my resources and tools together. To find a project I had to figure out who to contact, and then how to make time to speak with them. ",,,,
 What were the main challenges during this phase?,,,,
-The ideal script that makes the section of images and paragraphs swipe.,,,,
+The ideal script that makes the section of images and paragraphs swipe.,The ideal script that makes the section of images and paragraphs swipe.,The ideal script that makes the section of images and paragraphs swipe.,,
 "Were you able to meet the challenge, if so, what helped? It not, what could help?",,,,
 "I saw some example on the internet, and I tried some in the home page and I got the sample one.",,,,
 "Figuring out goals for a project is tough, but I could see that putting in the time to do things right and staying consistent with progress led to a positive impact. By logging the time spent on my tasks I can see how it builds up to meeting the overall goals.",,,,
