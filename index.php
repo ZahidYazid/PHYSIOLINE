@@ -142,7 +142,7 @@ include 'wishlist_cart.php';
         $select_products = $conn->prepare("SELECT * FROM `products` LIMIT 6"); 
         $select_products->execute();
         if($select_products->rowCount() > 0){
-         while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
+        while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
       ?>
       <form action="" method="post" class="swiper-slide slide">
          <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
@@ -165,18 +165,16 @@ include 'wishlist_cart.php';
          echo '<p class="empty">no products added yet!</p>';
       }
       ?>
+      </div>
+
+      <div class="swiper-pagination"></div>
    </div>
 
-   <div class="swiper-pagination"></div>
-</div>
-
-</section>
-
+   </section>
 
 <?php include 'footer.php'; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
 <script src="js/script.js"></script>
 
 <script>
@@ -187,9 +185,19 @@ include 'wishlist_cart.php';
       pagination: {
          el: ".swiper-pagination",
       },
+      breakpoints: {
+         550: {
+           slidesPerView: 2,
+         },
+         768: {
+           slidesPerView: 2,
+         },
+         1024: {
+           slidesPerView: 3,
+         },
+      },
    });
 </script>
-
 
 <script>
    var swiper = new Swiper(".category-slider", {
@@ -216,7 +224,6 @@ include 'wishlist_cart.php';
       },
    });
 </script>
-
 
 <script>
    var swiper = new Swiper(".products-slider", {
