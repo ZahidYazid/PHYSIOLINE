@@ -24,6 +24,7 @@
             $count_cart_items = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
             $count_cart_items->execute([$user_id]);
             $total_cart_counts = $count_cart_items->rowCount();
+
          ?>
          <div id="menu-btn" class="fas fa-bars"></div>
          <div id="theme-toggler" class="fas fa-moon"></div>

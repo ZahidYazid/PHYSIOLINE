@@ -139,7 +139,7 @@ if(isset($_POST['submit'])){
           ?>
       </div>
       <input type="submit" value="update now" class="btn" name="submit">
-      <a href="index.php" class="delete-btn">go back home page</a>
+      <a href="index.php" class="option-btn">go back home page</a>
    </form>
 
 </section>

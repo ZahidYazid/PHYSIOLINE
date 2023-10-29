@@ -384,12 +384,13 @@ section{
 }
 
 .category .slide:hover{
-   background-color: var(--red-100);
+   transform: scale(1.1);
 }
 
-.category .slide:hover img{
-   transform: scale(2);
-}
+/*.category .slide:hover{
+   background-color: var(--red-100);
+}*/
+
 
 .category .slide:hover h3{
    color:var(--red-600);
@@ -422,15 +423,15 @@ section{
    user-select: none;
 }
 
+.home-products .slide:hover{
+   transform: scale(1.05);
+}
+
 .home-products .slide img{
    width: 100%;
    height: 20rem;
    object-fit: contain;
    margin-bottom: 2rem;
-}
-
-.home-products .slide img:hover{
-   transform: scale(1.5);
 }
 
 .home-products .slide .name{
@@ -460,8 +461,8 @@ section{
    color:var(--red);
 }
 
-.home-products .slide .fa-heart,
-.home-products .slide .fa-eye{
+/*.home-products .slide .btn,
+.home-products .slide .btn{
    position: absolute;
    top:1rem;
    height: 4.5rem;
@@ -477,27 +478,27 @@ section{
    transition: .2s linear;
 }
 
-.home-products .slide .fa-heart{
+.home-products .slide .btn{
    right: -6rem;
 }
 
-.home-products .slide .fa-eye{
+.home-products .slide .btn{
    left: -6rem;
 }
 
-.home-products .slide .fa-heart:hover,
-.home-products .slide .fa-eye:hover{
+.home-products .slide .btn:hover,
+.home-products .slide .btn:hover{
    background-color: var(--black);
    color:var(--white);
 }
 
-.home-products .slide:hover .fa-heart{
+.home-products .slide:hover .btn{
    right: 1rem;
 }
 
-.home-products .slide:hover .fa-eye{
+.home-products .slide:hover .btn{
    left: 1rem;
-}
+} */
 
 .quick-view form{
    padding:2rem;
@@ -616,8 +617,8 @@ section{
    margin-bottom: 1rem;
 }
 
-.products .box-container .box .fa-heart,
-.products .box-container .box .fa-eye{
+/* .products .box-container .box .btn,
+.products .box-container .box .btn{
    position: absolute;
    top:1rem;
    height: 4.5rem;
@@ -633,27 +634,27 @@ section{
    transition: .2s linear;
 }
 
-.products .box-container .box .fa-heart{
-   right: -6rem;
+.products .box-container .box .btn{
+   right: -12rem;
 }
 
-.products .box-container .box .fa-eye{
-   left: -6rem;
+.products .box-container .box .btn{
+   left: -12rem;
 }
 
-.products .box-container .box .fa-heart:hover,
-.products .box-container .box .fa-eye:hover{
+.products .box-container .box .btn:hover,
+.products .box-container .box .btn:hover{
    background-color: var(--black);
    color:var(--white);
 }
 
-.products .box-container .box:hover .fa-heart{
+.products .box-container .box:hover .btn{
    right:1rem;
 }
 
-.products .box-container .box:hover .fa-eye{
+.products .box-container .box:hover .btn{
    left:1rem;
-}
+} */
 
 .products .box-container .box .name{
    font-size: 2rem;
@@ -763,63 +764,27 @@ section{
    background-color: var(--white);
    box-shadow: var(--box-shadow);
    border-radius: .5rem;
-   border:var(--red-600);
+   border:1px solid;
    margin-bottom: 5rem;
    user-select: none;
 }
 
 .reviews .slide .client-name{
-   color: var(--red-600);
+   color: var(--black-color);
    font-size: 3rem;
 }
 
 .reviews .slide .client-subject{
    padding: 1rem 0;
    line-height: 2;
-   font-size: 1.5rem;
-   color: var(--red-600);
+   font-size: 2.5rem;
+   color: var(--black-color);
 }
 
 .reviews .slide .client-mess{
    color: var(--black-color);
-   font-size: 2.5rem;
-}
-
-/*
-.reviews .slide img{
-   height: 10rem;
-   width: 10rem;
-   border-radius: 50%;
-   margin-bottom: .5rem;
-}
-
-.reviews .slide p{
-   padding:1rem 0;
-   line-height: 2;
-   font-size: 1.5rem;
-   color:var(--light-color);
-}
-
-.reviews .slide .stars{
-   display: inline-block;
-   margin-bottom: 1rem;
-   background-color: var(--light-bg);
-   padding:1rem 1.5rem;
-   border-radius: .5rem;
-}
-
-.reviews .slide .stars i{
-   margin:0 .3rem;
-   font-size: 1.7rem;
-   color:var(--orange);
-}
-
-.reviews .slide h3{
    font-size: 2rem;
-   color:var(--black);
 }
-*/
-
 
 .contact form{
    padding:2rem;
@@ -857,7 +822,7 @@ section{
 .contact div .text{
    padding:2rem;
    text-align: center;
-   background-color: var(--light-bg);
+   background-color: var(--white-color);
    box-shadow: none;
    border-radius: .5rem;
    border:none;
@@ -868,7 +833,7 @@ section{
 .contact div .image{
    padding:2rem;
    text-align: center;
-   background-color: var(--light-bg);
+   background-color: var(--white-color);
    box-shadow: none;
    border-radius: .5rem;
    border:none;

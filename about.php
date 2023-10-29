@@ -61,18 +61,32 @@ if(isset($_SESSION['user_id'])){
 
    <div class="swiper-wrapper">
 
-   <?php
-     $select_message = $conn->prepare("SELECT * FROM `messages` LIMIT 6"); 
-     $select_message->execute();
-     if($select_message->rowCount() > 0){
-     while($fetch_message = $select_message->fetch(PDO::FETCH_ASSOC)){
-   ?>
+      <?php
+            // Modify your SQL query to retrieve data from both tables using a JOIN operation
+            $select_message = $conn->prepare("SELECT m.*, u.image AS user_image FROM `messages` AS m 
+                                              JOIN `users` AS u ON m.user_id = u.id 
+                                              LIMIT 6");
+            $select_message->execute();
+
+            if ($select_message->rowCount() > 0) {
+               while ($fetch_message = $select_message->fetch(PDO::FETCH_ASSOC)) {
+      ?>
 
    <form action="" method="post" class="swiper-slide slide">
       <input type="hidden" name="pid" value="<?= $fetch_message['id']; ?>">
       <input type="hidden" name="name" value="<?= $fetch_message['name']; ?>">
       <input type="hidden" name="subject" value="<?= $fetch_message['subject']; ?>">
       <input type="hidden" name="message" value="<?= $fetch_message['message']; ?>">
+
+      <div>
+          <?php          
+            if($fetch_message['image'] == ''){
+               echo '<img src="images/avatar.png" style="height: 100px; width:100px; border-radius: 50%; object-fit: cover; margin-bottom: 4px;">';
+            }else{
+               echo '<img src="uploaded_img/'.$fetch_message['image'].'" style="height: 100px; width:100px; border-radius: 50%; object-fit: cover; margin-bottom: 4px;">';
+            }
+          ?>
+      </div>
 
       <div class="client-name"><?= $fetch_message['name']; ?></div>
       <div class="client-subject"><?= $fetch_message['subject']; ?></div>
@@ -91,7 +105,7 @@ if(isset($_SESSION['user_id'])){
 
    <div class="swiper-pagination"></div>
 
-</div>
+   </div>
 
 </section>
 
@@ -124,86 +138,6 @@ var swiper = new Swiper(".reviews-slider", {
 });
 
 </script>
-
-
-<!-- <div class="swiper-slide slide">
-            <img src="images/pic-1.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia tempore distinctio hic, iusto adipisci a rerum nemo perspiciatis fugiat sapiente.</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>john deo</h3>
-         </div>
-
-         <div class="swiper-slide slide">
-            <img src="images/pic-2.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia tempore distinctio hic, iusto adipisci a rerum nemo perspiciatis fugiat sapiente.</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>john deo</h3>
-         </div>
-
-         <div class="swiper-slide slide">
-            <img src="images/pic-3.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia tempore distinctio hic, iusto adipisci a rerum nemo perspiciatis fugiat sapiente.</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>john deo</h3>
-         </div>
-
-         <div class="swiper-slide slide">
-            <img src="images/pic-4.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia tempore distinctio hic, iusto adipisci a rerum nemo perspiciatis fugiat sapiente.</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>john deo</h3>
-         </div>
-
-         <div class="swiper-slide slide">
-            <img src="images/pic-5.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia tempore distinctio hic, iusto adipisci a rerum nemo perspiciatis fugiat sapiente.</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>john deo</h3>
-         </div>
-
-         <div class="swiper-slide slide">
-            <img src="images/pic-6.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia tempore distinctio hic, iusto adipisci a rerum nemo perspiciatis fugiat sapiente.</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>john deo</h3>
-         </div> -->
-
 
 </body>
 </html>

@@ -14,6 +14,8 @@ if(isset($_POST['send'])){
 
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $image = $_POST['image'];
+   $image = filter_var($image, FILTER_SANITIZE_STRING);
    $email = $_POST['email'];
    $email = filter_var($email, FILTER_SANITIZE_STRING);
    $number = $_POST['number'];
@@ -23,22 +25,20 @@ if(isset($_POST['send'])){
    $msg = $_POST['msg'];
    $msg = filter_var($msg, FILTER_SANITIZE_STRING);
 
-   $select_message = $conn->prepare("SELECT * FROM `messages` WHERE name = ? AND email = ? AND number = ? AND subject = ? AND message = ?");
-   $select_message->execute([$name, $email, $number, $subject, $msg]);
+   $select_message = $conn->prepare("SELECT * FROM `messages` WHERE name = ? AND image = ? AND email = ? AND number = ? AND subject = ? AND message = ?");
+   $select_message->execute([$name, $image, $email, $number, $subject, $msg]);
 
    if($select_message->rowCount() > 0){
       $message[] = 'already sent message!';
    }else{
 
-      $insert_message = $conn->prepare("INSERT INTO `messages`(user_id, name, email, number, subject, message) VALUES(?,?,?,?,?,?)");
-      $insert_message->execute([$user_id, $name, $email, $number, $subject, $msg]);
+      $insert_message = $conn->prepare("INSERT INTO `messages`(user_id, name, image, email, number, subject, message) VALUES(?,?,?,?,?,?,?)");
+      $insert_message->execute([$user_id, $name, $image, $email, $number, $subject, $msg]);
 
       $message[] = 'sent message successfully!';
-
    }
 
 }
-
 
 ?>
 
@@ -80,8 +80,9 @@ if(isset($_POST['send'])){
 
       ?>
 
-      <input type="text" name="name" placeholder="enter your name" required maxlength="20" class="box" value="<?= $fetch_profile["name"]; ?>">
-      <input type="email" name="email" placeholder="enter your email" required maxlength="50" class="box" value="<?= $fetch_profile["email"]; ?>">
+      <input type="text" name="name" placeholder="enter your name" required maxlength="20" class="box" value="<?= $fetch_profile["name"]; ?>" readonly>
+      <input type="text" name="image" placeholder="enter your image" required maxlength="20" class="box" value="<?= $fetch_profile["image"]; ?>" readonly>
+      <input type="email" name="email" placeholder="enter your email" required maxlength="50" class="box" value="<?= $fetch_profile["email"]; ?>" readonly>
       <input type="number" name="number" min="0" max="10" placeholder="enter your rating number" required onkeypress="if(this.value.length == 10) return false;" class="box">
       <input type="text" name="subject" placeholder="enter your subject" required maxlength="100" class="box">
       <textarea name="msg" class="box" placeholder="enter your message" cols="30" rows="10"></textarea>
