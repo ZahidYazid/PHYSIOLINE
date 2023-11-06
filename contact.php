@@ -80,10 +80,10 @@ if(isset($_POST['send'])){
 
       ?>
 
-      <input type="text" name="name" placeholder="enter your name" required maxlength="20" class="box" value="<?= $fetch_profile["name"]; ?>" readonly>
-      <input type="text" name="image" placeholder="enter your image" required maxlength="20" class="box" value="<?= $fetch_profile["image"]; ?>" readonly>
-      <input type="email" name="email" placeholder="enter your email" required maxlength="50" class="box" value="<?= $fetch_profile["email"]; ?>" readonly>
-      <input type="number" name="number" min="0" max="10" placeholder="enter your rating number" required onkeypress="if(this.value.length == 10) return false;" class="box">
+      <input type="text" name="name" placeholder="enter your name" required maxlength="20" class="box" value="<?= $fetch_profile["name"]; ?>">
+      <input type="text" name="image" placeholder="enter your image" required maxlength="20" class="box" value="<?= $fetch_profile["image"]; ?>">
+      <input type="email" name="email" placeholder="enter your email" required maxlength="50" class="box" value="<?= $fetch_profile["email"]; ?>">
+      <input type="number" name="number" min="0" max="5" placeholder="rate your experence here from 1 to 5" required onkeypress="if(this.value.length == 5) return false;" class="box">
       <input type="text" name="subject" placeholder="enter your subject" required maxlength="100" class="box">
       <textarea name="msg" class="box" placeholder="enter your message" cols="30" rows="10"></textarea>
       
@@ -110,9 +110,6 @@ if(isset($_POST['send'])){
    </div>
 
 </section>
-
-
-
 
 
 

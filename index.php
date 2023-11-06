@@ -90,37 +90,37 @@ include 'wishlist_cart.php';
 
          <div class="swiper-wrapper">
 
-            <a href="category.php?category=execcise" class="swiper-slide slide">
+            <a href="category.php?category=Exercise" class="swiper-slide slide">
                <img src="images/istockphoto.png" alt="">
                <h3>Exercise</h3>
             </a>
 
             <a href="category.php?category=Electrotherapy" class="swiper-slide slide">
                <img src="images/machines.png" alt="">
-               <h3>Electro-therapy</h3>
+               <h3>Electrotherapy</h3>
             </a>
 
-            <a href="category.php?category=Heat_cold_therapy" class="swiper-slide slide">
+            <a href="category.php?category=Heat and cold therapy" class="swiper-slide slide">
                <img src="images/Heat-cold-therapy.png" alt="">
                <h3>Heat and cold therapy</h3>
             </a>
 
-            <a href="category.php?category=balance_stability" class="swiper-slide slide">
+            <a href="category.php?category=Balance and stability" class="swiper-slide slide">
                <img src="images/Balance-stability.png" alt="">
                <h3>Balance and stability</h3>
             </a>
 
-            <a href="category.php?category=Mobility_aids" class="swiper-slide slide">
+            <a href="category.php?category=Mobility aids" class="swiper-slide slide">
                <img src="images/Mobility-Aids.png" alt="">
                <h3>Mobility aids</h3>
             </a>
 
-            <a href="category.php?category=massage_manual_therapy" class="swiper-slide slide">
+            <a href="category.php?category=massage and manual therapy" class="swiper-slide slide">
                <img src="images/massage-therapy.png" alt="">
                <h3>Massage and manual therapy</h3>
             </a>
 
-            <a href="category.php?category=others" class="swiper-slide slide">
+            <a href="category.php?category=Others" class="swiper-slide slide">
                <img src="images/Others.png" alt="">
                <h3>Others</h3>
             </a>

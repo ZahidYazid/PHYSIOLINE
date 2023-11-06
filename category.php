@@ -41,7 +41,7 @@ include 'wishlist_cart.php';
 
    <?php
      $category = $_GET['category'];
-     $select_products = $conn->prepare("SELECT * FROM `products` WHERE name LIKE '%{$category}%'"); 
+     $select_products = $conn->prepare("SELECT * FROM `products` WHERE category LIKE '%{$category}%'"); 
      $select_products->execute();
      if($select_products->rowCount() > 0){
       while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
@@ -49,6 +49,7 @@ include 'wishlist_cart.php';
    <form action="" method="post" class="box">
       <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
       <input type="hidden" name="name" value="<?= $fetch_product['name']; ?>">
+      <input type="hidden" name="category" value="<?= $fetch_product['category']; ?>">
       <input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
       <input type="hidden" name="image" value="<?= $fetch_product['image_01']; ?>">
       <button class="option-btn" type="submit" name="add_to_wishlist">add to wishlist</button>
@@ -71,10 +72,6 @@ include 'wishlist_cart.php';
    </div>
 
 </section>
-
-
-
-
 
 
 

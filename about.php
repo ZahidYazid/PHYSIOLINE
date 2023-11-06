@@ -87,8 +87,19 @@ if(isset($_SESSION['user_id'])){
             }
           ?>
       </div>
-
       <div class="client-name"><?= $fetch_message['name']; ?></div>
+      <div class="client-rate"><?php $number = $fetch_message['number']; // Replace with your desired number
+      // Ensure the rating is limited to a maximum of 5
+      $number = min(max($number, 0), 5);
+      for ($i = 0; $i < $number; $i++) {
+        echo '<img src="images/starfill.jpg" style="height:10px; width:10px;">'; // You can use any character or icon you like here
+      }
+      // Output white stars for the remaining spaces
+      for ($i = $number; $i < 5; $i++) {
+        echo '<img src="images/starempty.png" style="height:10px; width:10px;">'; // White star symbol
+      }
+        echo "</p>";?></div>
+      
       <div class="client-subject"><?= $fetch_message['subject']; ?></div>
       <div class="client-mess"><?= $fetch_message['message']; ?></div>
 
@@ -119,6 +130,7 @@ if(isset($_SESSION['user_id'])){
 
 var swiper = new Swiper(".reviews-slider", {
    loop:true,
+   grabCursor: true,
    spaceBetween: 20,
    pagination: {
       el: ".swiper-pagination",

@@ -242,21 +242,12 @@ section{
 }
 
 .header .flex .logo{
-   font-size: 2.5rem;
-   font-weight: bolder;
-   color:var(--black-900);
-   text-transform: uppercase;
+   opacity: 0.8;
 }
 
 .header .flex .logo:hover{
-   color: var(--red-600);
-  /* transform: translateY(-10px);*/
-   letter-spacing: .5rem;
-}
-
-.header .flex .logo span{
-   color:var(--red-600);
-
+   opacity: 1;
+   transform: scale(1.5);
 }
 
 .header .flex .navbar a{
@@ -682,6 +673,8 @@ section{
    margin-right: auto;
 }
 
+/*
+
 .form-container form{
    background-color: var(--white);
    padding:2rem;
@@ -720,6 +713,22 @@ section{
    color:var(--black);  
    width: 100%;
    border-radius: .5rem;
+}
+*/
+
+.form-container .input-container{
+  position: relative;
+}
+
+.form-container .input-container input{
+  padding-left: 30px; /* Adjust the padding as needed to position the icon correctly */
+}
+
+.form-container .input-container i {
+  position: absolute;
+  top: 50%;
+  left: 10px; /* Adjust the left position as needed to position the icon correctly */
+  transform: translateY(-50%);
 }
 
 .about .row{
@@ -768,6 +777,11 @@ section{
    margin-bottom: 5rem;
    user-select: none;
 }
+
+/*.reviews .slide .client-rate{
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+}*/
 
 .reviews .slide .client-name{
    color: var(--black-color);
@@ -1117,16 +1131,6 @@ section{
 
 
 
-
-
-
-
-
-
-
-
-
-
 @media (max-width:991px){
 
    html{
@@ -1194,23 +1198,6 @@ section{
    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
