@@ -4,39 +4,114 @@ include 'connect.php';
 
 session_start();
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
+   $isSubscribed = true;
+   // Fetch user profile when logged in
+   $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+   $select_profile->execute([$user_id]);
+   $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
 }else{
    $user_id = '';
-};
+   $isSubscribed = false;
+   $fetch_profile = ['name' => '', 'image' => '', 'email' => '']; // Provide default values
+}
 
 if(isset($_POST['send'])){
+   // Filter input data to remove potential security issues
 
    $name = $_POST['name'];
-   $name = filter_var($name, FILTER_SANITIZE_STRING);
-   $image = $_POST['image'];
-   $image = filter_var($image, FILTER_SANITIZE_STRING);
-   $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
-   $number = $_POST['number'];
-   $number = filter_var($number, FILTER_SANITIZE_STRING);
-   $subject = $_POST['subject'];
-   $subject = filter_var($subject, FILTER_SANITIZE_STRING);
-   $msg = $_POST['msg'];
-   $msg = filter_var($msg, FILTER_SANITIZE_STRING);
+   $name = filter_var($name, FILTER_DEFAULT);
+   
+    // Provide a default value for 'name' if it's empty
 
-   $select_message = $conn->prepare("SELECT * FROM `messages` WHERE name = ? AND image = ? AND email = ? AND number = ? AND subject = ? AND message = ?");
-   $select_message->execute([$name, $image, $email, $number, $subject, $msg]);
-
-   if($select_message->rowCount() > 0){
-      $message[] = 'already sent message!';
-   }else{
-
-      $insert_message = $conn->prepare("INSERT INTO `messages`(user_id, name, image, email, number, subject, message) VALUES(?,?,?,?,?,?,?)");
-      $insert_message->execute([$user_id, $name, $image, $email, $number, $subject, $msg]);
-
-      $message[] = 'sent message successfully!';
+   if (empty($name)) {
+       $name = 'Unknown';
    }
+
+   $image = $_POST['image'];
+   $image = filter_var($image, FILTER_DEFAULT);
+
+   if (empty($image)) {
+      $image = null;
+   } 
+
+
+   $email = $_POST['email'];
+   $email = filter_var($email, FILTER_DEFAULT);
+ 
+   if (empty($email)) {
+      $email = '';
+   } 
+
+   $number = $_POST['number'];
+   $number = filter_var($number, FILTER_DEFAULT);
+  
+    if (empty($number)) {
+      $number = 0;
+   } 
+
+   $subject = $_POST['subject'];
+
+   $msg = $_POST['msg'];
+
+   $subject = filter_var($subject, FILTER_DEFAULT);
+   $msg = filter_var($msg, FILTER_DEFAULT);
+  
+
+   if ($isSubscribed) {
+       // The user is subscribed, only rating, subject, and message are required.
+       if (empty($number) || empty($subject) || empty($msg)) {
+           $message[] = 'Rating, subject, and message are required fields.';
+       } else {
+           // Process the form for subscribed users
+           $select_message = $conn->prepare("SELECT * FROM `messages` WHERE user_id = ? AND subject = ? AND message = ?");
+           $select_message->execute([$user_id, $subject, $msg]);
+
+           if ($select_message->rowCount() > 0) {
+               $message[] = 'You have already sent this message!';
+           } else {
+               $insert_message = $conn->prepare("INSERT INTO `messages`(user_id, name, image, email, number, subject, message) VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+               $result = $insert_message->execute([$user_id, $name, $image, $email, $number, $subject, $msg]);
+
+               if (!$result) {
+                  print_r($insert_message->errorInfo());
+               } else {
+                  $message[] = 'Message sent successfully!';
+
+               }
+           }
+       }
+   } else {
+       // The user is not subscribed, all fields are required.
+       if (empty($email) || empty($number) || empty($subject) || empty($msg)) {
+           $message[] = 'All fields are required for non-subscribed users.';
+       } else {
+           // Process the form for non-subscribed users
+           $select_message = $conn->prepare("SELECT * FROM `messages` WHERE name = ? AND image = ? AND email = ? AND number = ? AND subject = ? AND message = ?");
+           $select_message->execute([$name, $image, $email, $number, $subject, $msg]);
+
+           if ($select_message->rowCount() > 0) {
+               $message[] = 'You have already sent this message!';
+           } else {
+               $insert_message = $conn->prepare("INSERT INTO `messages`(user_id, name, image, email, number, subject, message) VALUES (?, ?, ?, ?, ?, ?, ?)");
+               // Replace empty 'name' with a default value if needed
+               $name = !empty($name) ? $name : 'Unknown';
+               $user_id = !empty($user_id) ? $user_id : 0;
+               $result = $insert_message->execute([$user_id, $name, $image, $email, $number, $subject, $msg]);
+               if (!$result) {
+                  print_r($insert_message->errorInfo());
+               } else {
+                  $message[] = 'Message sent successfully!';
+               }
+           }
+       }
+   }
+
 
 }
 
@@ -61,7 +136,7 @@ if(isset($_POST['send'])){
    
 <?php include 'header.php'; ?>
 
-<section class="contact">
+<section class="form-container">
 
    <form action="" method="post">
       <h3>Contact Form</h3>
@@ -79,17 +154,30 @@ if(isset($_POST['send'])){
       }
 
       ?>
-
-      <input type="text" name="name" placeholder="enter your name" required maxlength="20" class="box" value="<?= $fetch_profile["name"]; ?>">
-      <input type="text" name="image" placeholder="enter your image" required maxlength="20" class="box" value="<?= $fetch_profile["image"]; ?>">
-      <input type="email" name="email" placeholder="enter your email" required maxlength="50" class="box" value="<?= $fetch_profile["email"]; ?>">
-      <input type="number" name="number" min="0" max="5" placeholder="rate your experence here from 1 to 5" required onkeypress="if(this.value.length == 5) return false;" class="box">
-      <input type="text" name="subject" placeholder="enter your subject" required maxlength="100" class="box">
-      <textarea name="msg" class="box" placeholder="enter your message" cols="30" rows="10"></textarea>
-      
+      <div class="input-container">
+         <i class="fa fa-user"></i>
+         <input type="text" name="name" placeholder="enter your name" required maxlength="20" class="box" value="<?= $fetch_profile["name"]; ?>">
+      </div>
+    
+         <input type="hidden" name="image" placeholder="enter your image" required maxlength="20" class="box" value="<?= $fetch_profile["image"];?>">
+      <div class="input-container">
+         <i class="fa fa-envelope"></i>
+         <input type="email" name="email" placeholder="enter your email" required maxlength="50" class="box" value="<?= $fetch_profile["email"]; ?>">
+      </div>
+      <div class="input-container">
+         <i class="fa fa-star"></i>
+         <input type="number" name="number" min="0" max="5" placeholder="rate your experence here from 1 to 5" required onkeypress="if(this.value.length == 5) return false;" class="box">
+      </div>
+      <div class="input-container">
+         <i class="fa fa-book"></i>
+         <input type="text" name="subject" placeholder="enter your subject" required maxlength="100" class="box">
+      </div>
+         <textarea name="msg" class="box" placeholder="enter your message" cols="30" rows="10"></textarea>
       <input type="submit" value="Submit" name="send" class="btn">
    </form>
+</section>
 
+<section class="contact">
    <div>
       <div class="text">
       

@@ -64,8 +64,8 @@ if(isset($_SESSION['user_id'])){
       <?php
             // Modify your SQL query to retrieve data from both tables using a JOIN operation
             $select_message = $conn->prepare("SELECT m.*, u.image AS user_image FROM `messages` AS m 
-                                              JOIN `users` AS u ON m.user_id = u.id 
-                                              LIMIT 6");
+                  JOIN `users` AS u ON m.user_id = u.id 
+                  LIMIT 6");
             $select_message->execute();
 
             if ($select_message->rowCount() > 0) {

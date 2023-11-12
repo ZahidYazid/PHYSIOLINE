@@ -84,7 +84,7 @@ include 'wishlist_cart.php';
 
    <section class="category">
 
-      <h1 class="heading">Products category</h1>
+      <h1 class="heading">Products by category</h1>
 
       <div class="swiper category-slider">
 
@@ -132,7 +132,7 @@ include 'wishlist_cart.php';
    </section>
 
    <section class="home-products">
-      <h1 class="heading">latest products</h1>
+      <h1 class="heading">shop products</h1>
 
       <div class="swiper products-slider">
 
@@ -154,7 +154,7 @@ include 'wishlist_cart.php';
          <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
          <div class="name"><?= $fetch_product['name']; ?></div>
          <div class="flex">
-            <div class="price"><span>$</span><?= $fetch_product['price']; ?><span>/-</span></div>
+            <div class="price"><span>$</span><?= $fetch_product['price']; ?><span></span></div>
             <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
          </div>
          <input type="submit" value="add to cart" class="btn" name="add_to_cart">
@@ -228,6 +228,7 @@ include 'wishlist_cart.php';
 <script>
    var swiper = new Swiper(".products-slider", {
       loop:true,
+      grabCursor: true,
       spaceBetween: 20,
       pagination: {
          el: ".swiper-pagination",

@@ -122,11 +122,26 @@ if(isset($_POST['submit'])){
       ?>
 
       <input type="hidden" name="prev_pass" value="<?= $fetch_profile["password"]; ?>">
-      <input type="text" name="name" required placeholder="enter your username" maxlength="20"  class="box" value="<?= $fetch_profile["name"]; ?>">
-      <input type="email" name="email" required placeholder="enter your email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')" value="<?= $fetch_profile["email"]; ?>">
-      <input type="password" name="old_pass" placeholder="enter your old password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="new_pass" placeholder="enter your new password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="cpass" placeholder="confirm your new password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <div class="input-container">
+         <i class="fa fa-user"></i>
+         <input type="text" name="name" required placeholder="enter your username" maxlength="20"  class="box" value="<?= $fetch_profile["name"]; ?>">
+      </div>
+      <div class="input-container">
+         <i class="fa fa-envelope"></i>
+         <input type="email" name="email" required placeholder="enter your email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')" value="<?= $fetch_profile["email"]; ?>">
+      </div>
+      <div class="input-container">
+         <i class="fa fa-key"></i>
+         <input type="password" name="old_pass" placeholder="enter your old password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      </div>
+      <div class="input-container">
+         <i class="fa fa-key"></i>
+         <input type="password" name="new_pass" placeholder="enter your new password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      </div>
+      <div class="input-container">
+         <i class="fa fa-key"></i>
+         <input type="password" name="cpass" placeholder="confirm your new password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      </div>
       <div>
          <label class="label">profile picture</label>
          <input type="file" name="update_image" accept="image/jpg, image/jpeg, image/png" class="box">

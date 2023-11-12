@@ -93,12 +93,22 @@ if(isset($_POST['submit'])){
       }
 
       ?>
-
-      <input type="text" name="name" maxlength="20" placeholder="enter your name" class="box" required >
-      <input type="email" name="email" maxlength="50" placeholder="enter your email" class="box" required oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="pass" maxlength="20" placeholder="enter your password" class="box" required oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="cpass" maxlength="20" placeholder="confirm your password" class="box" required oninput="this.value = this.value.replace(/\s/g, '')">
-
+      <div class="input-container">
+         <i class="fa fa-user"></i>
+         <input type="text" name="name" maxlength="20" placeholder="enter your username" class="box" required >
+      </div>
+      <div class="input-container">
+         <i class="fa fa-envelope"></i>
+         <input type="email" name="email" maxlength="50" placeholder="enter your email" class="box" required oninput="this.value = this.value.replace(/\s/g, '')">
+      </div>
+      <div class="input-container">
+         <i class="fa fa-key"></i>
+         <input type="password" name="pass" maxlength="20" placeholder="enter your password" class="box" required oninput="this.value = this.value.replace(/\s/g, '')">
+      </div>
+      <div class="input-container">
+         <i class="fa fa-key"></i>
+         <input type="password" name="cpass" maxlength="20" placeholder="confirm your password" class="box" required oninput="this.value = this.value.replace(/\s/g, '')">
+      </div>
       <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png">
        <?php          
             if($fetch_profile['image'] == ''){
@@ -107,6 +117,10 @@ if(isset($_POST['submit'])){
                echo '<img src="uploaded_img/'.$fetch_profile['image'].'" style="height: 100px; width:100px; border-radius: 50%; object-fit: cover; margin-bottom: 4px;">';
             }
           ?>
+      <div class="input-container">
+         <input type="checkbox" id="terms">
+         <label for="accept-terms">I agree to the <a class="terms" href="#0">Terms</a></label>
+      </div>
       <input type="submit" name="submit" value="register now" class="btn">
       <p>already have an account? <a href="login.php">login now</a></p>
    </form>

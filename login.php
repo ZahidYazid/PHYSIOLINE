@@ -73,25 +73,42 @@ if(isset($_POST['submit'])){
       <div class="input-container">
          <i class="fa fa-envelope"></i>
          <input type="email" name="email" maxlength="50" placeholder="enter your email" class="box" required oninput="this.value = this.value.replace(/\s/g, '')">
-         
       </div>
       <div class="input-container">
          <i class="fa fa-key"></i>
-         <input type="password" name="pass" maxlength="20" placeholder="enter your password" class="box" required oninput="this.value = this.value.replace(/\s/g, '')">
-         
+         <div class="password-container">
+            <input id="eyeInput" type="password" name="pass" maxlength="20" placeholder="enter your password" class="box" required oninput="this.value = this.value.replace(/\s/g, '')">
+            <span class="eye" onclick="eye()">
+               <i id="hide" class="fa fa-eye"></i>
+               <i id="expose" class="fa fa-eye-slash"></i>
+            </span>
+         </div>
       </div>
-      <span class="eye">
-         <i id="hide1" class="fa fa-eye"></i>
-         <i id="hide2" class="fa fa-eye-slash"></i>
-      </span>
-      <input type="submit" name="submit" value="login now" class="btn">
 
-      <p>Don't have an account? <a href="register.php">register now</a></p>
+         <input type="submit" name="submit" value="login now" class="btn">
+         <p class="form-bottom-message">Forgot your <a href="register.php">password?</a></p>
+         <p>Don't have an account? <a href="register.php">register now</a></p>
    </form>
 
 </section>
 
-
+<script type="text/javascript">
+   function eye() {
+   // body...
+   var a = document.getElementById("eyeInput");
+   var b = document.getElementById("hide");
+   var c = document.getElementById("expose");
+   if(a.type === 'password') {
+      a.type = "text";
+      b.style.display = "block";
+      c.style.display = "none";
+   }else{
+      a.type = "password";
+      b.style.display = "none";
+      c.style.display = "block";
+   }
+}
+</script>
 
 
 
