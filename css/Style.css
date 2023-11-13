@@ -560,7 +560,7 @@ section{
 
 .products .box-container .box .flex .price{
    text-align: center;
-   /*width: 7rem;*/
+   width: 7rem;
    margin:1rem 1rem;
    padding: 1rem;
    font-size: 2rem;
