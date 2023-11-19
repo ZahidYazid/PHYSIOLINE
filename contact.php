@@ -158,7 +158,6 @@ if(isset($_POST['send'])){
          <i class="fa fa-user"></i>
          <input type="text" name="name" placeholder="enter your name" required maxlength="20" class="box" value="<?= $fetch_profile["name"]; ?>">
       </div>
-    
          <input type="hidden" name="image" placeholder="enter your image" required maxlength="20" class="box" value="<?= $fetch_profile["image"];?>">
       <div class="input-container">
          <i class="fa fa-envelope"></i>

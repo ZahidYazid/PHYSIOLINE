@@ -115,7 +115,7 @@ include 'wishlist_cart.php';
                <h3>Mobility aids</h3>
             </a>
 
-            <a href="category.php?category=massage and manual therapy" class="swiper-slide slide">
+            <a href="category.php?category=Massage and manual therapy" class="swiper-slide slide">
                <img src="images/massage-therapy.png" alt="">
                <h3>Massage and manual therapy</h3>
             </a>

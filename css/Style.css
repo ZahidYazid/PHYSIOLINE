@@ -86,6 +86,51 @@ section{
    margin:0 auto;
 }
 
+
+
+/* Basic select box styles */
+select {
+   text-align: center;
+   padding: 1rem;
+   
+   font-size: 1.8rem;
+   border: 1px solid #ccc;
+   box-shadow: var(--box-shadow);
+   background-color: var(--red-100);
+   border-radius: .5rem;
+   outline: none;
+   width: 30rem;
+   margin: 0 auto;
+   display: block;
+   margin-bottom: 2rem;
+}
+
+    /* Style for dropdown arrow */
+select:after {
+   content: "\25BC";
+   position: absolute;
+   top: 30%;
+   right: .8rem;
+   pointer-events: none;
+   background-color: var(--red-100);
+}
+
+    /* Style for options */
+select option {
+   background-color: var(--red-100); 
+   color: var(--black-600);
+
+}
+
+    /* Style for hover and focus states */
+select:hover,
+select:focus {
+   border-color: var(--black-color);
+   background-color: var(--red-200);
+}
+
+
+
 .heading{
    font-size: 4rem;
    color:var(--black);
@@ -178,6 +223,8 @@ section{
    border-radius: .5rem;
    font-size: 2rem;
    text-transform: capitalize;
+   margin: 0 auto;
+   display: block;
 }
 
 .disabled{
@@ -224,7 +271,6 @@ section{
 
 .header .flex .navbar a:hover{
    color:var(--red-600);
-  /* text-decoration: underline; */
    letter-spacing: .4rem;
 }
 
@@ -407,8 +453,9 @@ section{
 }
 
 .home-products .slide .flex .price{
+   text-align: center;
    width: 7rem;
-   margin:1rem 0;
+   /*margin:1rem 0;*/
    padding: 1rem;
    font-size: 2rem;
    color:var(--red);
@@ -455,9 +502,11 @@ section{
    width: 10rem;
    object-fit: contain;
    padding:.5rem;
-   border:var(--border);
+   border-radius: .5rem;
    cursor: pointer;
    transition: .2s linear;
+   border: var(--border);
+   box-shadow: var(--box-shadow);
 }
 
 .quick-view form .flex .image-container .sub-image img:hover{
@@ -498,8 +547,9 @@ section{
 }
 
 .quick-view form .row .flex .price{
+   text-align: center;
    width: 7rem;
-   margin:1rem 0;
+   /*margin:1rem 0;*/
    padding: 1rem;
    font-size: 2rem;
    color:var(--red);
@@ -531,6 +581,12 @@ section{
    overflow: hidden;
 }
 
+
+
+
+
+
+
 .products .box-container .box img{
    height: 20rem;
    width: 100%;
@@ -561,7 +617,7 @@ section{
 .products .box-container .box .flex .price{
    text-align: center;
    width: 7rem;
-   margin:1rem 1rem;
+   /*margin:1rem 1rem;*/
    padding: 1rem;
    font-size: 2rem;
    color:var(--red);

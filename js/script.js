@@ -38,6 +38,9 @@ themeToggler.onclick = () =>{
    }
 }
 
+
+
+
 /*// JavaScript for dark mode persistence
 window.addEventListener('DOMContentLoaded', () => {
     const themeToggler = document.querySelector('#theme-toggler');

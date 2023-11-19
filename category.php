@@ -37,6 +37,24 @@ include 'wishlist_cart.php';
 
    <h1 class="heading">products by category</h1>
 
+   <!-- Category list box -->
+    <form action="" method="GET" class="box">
+        <select name="category">
+            <option value="">All categories</option>
+            <?php
+            // Fetch category names from the database
+            $select_categories = $conn->prepare("SELECT * FROM `categories`");
+            $select_categories->execute();
+            while ($fetch_category = $select_categories->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                <option value="<?= $fetch_category['category_name']; ?>">
+                    <?= $fetch_category['category_name']; ?>
+                </option>
+            <?php } ?>
+        </select>
+       <!-- <input class="btn" type="submit" value="Filter"> -->
+    </form>
+
    <div class="box-container">
 
    <?php
@@ -84,6 +102,28 @@ include 'wishlist_cart.php';
 <?php include 'footer.php'; ?>
 
 <script src="js/script.js"></script>
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const categorySelect = document.querySelector('select[name="category"]');
+        
+        // Get the current category from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedCategory = urlParams.get('category');
+
+        // Set the selected category in the select box
+        if (selectedCategory) {
+            categorySelect.value = selectedCategory;
+        }
+
+        // Add change event listener
+        categorySelect.addEventListener('change', function() {
+            const selectedCategory = this.value;
+            window.location.href = `category.php?category=${selectedCategory}`;
+        });
+    });
+</script>
 
 </body>
 </html>

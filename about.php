@@ -7,7 +7,7 @@ session_start();
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
 }else{
-   $user_id = '';
+   $user_id = 0;
 };
 
 ?>
@@ -64,53 +64,52 @@ if(isset($_SESSION['user_id'])){
       <?php
             // Modify your SQL query to retrieve data from both tables using a JOIN operation
             $select_message = $conn->prepare("SELECT m.*, u.image AS user_image FROM `messages` AS m 
-                  JOIN `users` AS u ON m.user_id = u.id 
-                  LIMIT 6");
+                  LEFT JOIN `users` AS u ON m.user_id = u.id LIMIT 6");
             $select_message->execute();
 
             if ($select_message->rowCount() > 0) {
                while ($fetch_message = $select_message->fetch(PDO::FETCH_ASSOC)) {
       ?>
 
-   <form action="" method="post" class="swiper-slide slide">
-      <input type="hidden" name="pid" value="<?= $fetch_message['id']; ?>">
-      <input type="hidden" name="name" value="<?= $fetch_message['name']; ?>">
-      <input type="hidden" name="subject" value="<?= $fetch_message['subject']; ?>">
-      <input type="hidden" name="message" value="<?= $fetch_message['message']; ?>">
+      <form action="" method="post" class="swiper-slide slide">
+         <input type="hidden" name="pid" value="<?= $fetch_message['id']; ?>">
+         <input type="hidden" name="name" value="<?= $fetch_message['name']; ?>">
+         <input type="hidden" name="subject" value="<?= $fetch_message['subject']; ?>">
+         <input type="hidden" name="message" value="<?= $fetch_message['message']; ?>">
 
-      <div>
-          <?php          
-            if($fetch_message['image'] == ''){
-               echo '<img src="images/avatar.png" style="height: 100px; width:100px; border-radius: 50%; object-fit: cover; margin-bottom: 4px;">';
-            }else{
-               echo '<img src="uploaded_img/'.$fetch_message['image'].'" style="height: 100px; width:100px; border-radius: 50%; object-fit: cover; margin-bottom: 4px;">';
-            }
-          ?>
-      </div>
-      <div class="client-name"><?= $fetch_message['name']; ?></div>
-      <div class="client-rate"><?php $number = $fetch_message['number']; // Replace with your desired number
-      // Ensure the rating is limited to a maximum of 5
-      $number = min(max($number, 0), 5);
-      for ($i = 0; $i < $number; $i++) {
-        echo '<img src="images/starfill.jpg" style="height:10px; width:10px;">'; // You can use any character or icon you like here
-      }
-      // Output white stars for the remaining spaces
-      for ($i = $number; $i < 5; $i++) {
-        echo '<img src="images/starempty.png" style="height:10px; width:10px;">'; // White star symbol
-      }
-        echo "</p>";?></div>
-      
-      <div class="client-subject"><?= $fetch_message['subject']; ?></div>
-      <div class="client-mess"><?= $fetch_message['message']; ?></div>
+         <div>
+             <?php          
+               if($fetch_message['image'] == null){
+                  echo '<img src="images/avatar.png" style="height: 100px; width:100px; border-radius: 50%; object-fit: cover; margin-bottom: 4px;">';
+               }else{
+                  echo '<img src="uploaded_img/'.$fetch_message['image'].'" style="height: 100px; width:100px; border-radius: 50%; object-fit: cover; margin-bottom: 4px;">';
+               }
+             ?>
+         </div>
+         <div class="client-name"><?= $fetch_message['name'] ?? 'Anonymous'; ?></div>
+         <div class="client-rate"><?php $number = $fetch_message['number'] ?? 0; // Replace with your desired number
+         // Ensure the rating is limited to a maximum of 5
+         $number = min(max($number, 0), 5);
+         for ($i = 0; $i < $number; $i++) {
+           echo '<img src="images/starfull.jpg" style="height:10px; width:10px;">'; // You can use any character or icon you like here
+         }
+         // Output white stars for the remaining spaces
+         for ($i = $number; $i < 5; $i++) {
+           echo '<img src="images/starempty.png" style="height:10px; width:10px;">'; // White star symbol
+         }
+           echo "</p>";?></div>
+         
+         <div class="client-subject"><?= $fetch_message['subject']; ?></div>
+         <div class="client-mess"><?= $fetch_message['message']; ?></div>
 
-   </form>
+      </form>
 
-   <?php
+      <?php
+         }
+      }else{
+         echo '<p class="empty">no reviews added yet!</p>';
       }
-   }else{
-      echo '<p class="empty">no reviews added yet!</p>';
-   }
-   ?>
+      ?>
 
    </div>
 
