@@ -192,6 +192,7 @@ ERD for Online Physiotherapy Product Store:
 - Categories table:
 	CategoryID (PK)
 	CategoryName
+	CategoryImage
 
 
 Logical DFD for Online Seller of Physiotherapy Products:
@@ -210,6 +211,7 @@ Logical DFD for Online Seller of Physiotherapy Products:
 	-	Manage Orders (Admin): Administrators can manage orders and customer data.
 3-	Data Stores:
 	-	Product Database: Stores product information, including names, descriptions, prices, and stock quantities.
+	-	Product category Database: Stores product category information, including categories names and categories images.   
 	-	User Database: Stores user account information.
 	-	Order Database: Stores order information, including order details and totals.
 	-	Cart: Represents the temporary storage of user-selected products during a session.
@@ -232,6 +234,7 @@ Physical DFD for Online Seller of Physiotherapy Products:
 	-	Database Server: Manages and stores the application's database.
 3-	Data Stores:
 	-	Product Database: Contains information about products, including names, descriptions, prices, and stock quantities.
+	-	Product categories Database: Contains information about products category, including category names and category image.
 	-	User Database: Stores user account information.
 	-	Order Database: Stores order information, including order details and totals.
 	-	Session Data Store: Temporary storage for user session data, including shopping cart contents.
