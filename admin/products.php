@@ -16,6 +16,8 @@ if(isset($_POST['add_product'])){
    $name = filter_var($name, FILTER_SANITIZE_STRING);
    $price = $_POST['price'];
    $price = filter_var($price, FILTER_SANITIZE_STRING);
+   $category = $_POST['category'];
+   $category = filter_var($category, FILTER_SANITIZE_STRING);
    $details = $_POST['details'];
    $details = filter_var($details, FILTER_SANITIZE_STRING);
 
@@ -44,8 +46,8 @@ if(isset($_POST['add_product'])){
       $message[] = 'product name already exist!';
    }else{
 
-      $insert_products = $conn->prepare("INSERT INTO `products`(name, details, price, image_01, image_02, image_03) VALUES(?,?,?,?,?,?)");
-      $insert_products->execute([$name, $details, $price, $image_01, $image_02, $image_03]);
+      $insert_products = $conn->prepare("INSERT INTO `products`(name, details, price, category, image_01, image_02, image_03) VALUES(?,?,?,?,?,?,?)");
+      $insert_products->execute([$name, $details, $price, $category, $image_01, $image_02, $image_03]);
 
       if($insert_products){
          if($image_size_01 > 2000000 OR $image_size_02 > 2000000 OR $image_size_03 > 2000000){
@@ -108,29 +110,47 @@ if(isset($_GET['delete'])){
    <form action="" method="post" enctype="multipart/form-data">
       <div class="flex">
          <div class="inputBox">
-            <span>product name (required)</span>
-            <input type="text" class="box" required maxlength="100" placeholder="enter product name" name="name">
+            <input type="text" class="box" required maxlength="100" placeholder="enter product name (required)" name="name">
+         </div>
+        
+         <div class="inputBox">
+            <input type="number" min="0" class="box" required max="9999999999" placeholder="enter product price (required)" onkeypress="if(this.value.length == 10) return false;" name="price">
+         </div>
+
+         <div class="inputBox">
+            <textarea name="details" placeholder="enter product details (required)" class="box" required maxlength="500" cols="30" rows="10"></textarea>
+         </div>
+
+         <div class="inputBox">
+            <select name="category" class="box">
+               <option value="">Select a category</option>
+               <?php
+               // Fetch category names from the database
+               $select_categories = $conn->prepare("SELECT * FROM `categories`");
+               $select_categories->execute();
+               while ($fetch_category = $select_categories->fetch(PDO::FETCH_ASSOC)) {
+                   ?>
+                   <option value="<?= $fetch_category['category_name']; ?>">
+                       <?= $fetch_category['category_name']; ?>
+                   </option>
+               <?php } ?>
+            </select>
          </div>
          <div class="inputBox">
-            <span>product price (required)</span>
-            <input type="number" min="0" class="box" required max="9999999999" placeholder="enter product price" onkeypress="if(this.value.length == 10) return false;" name="price">
-         </div>
-        <div class="inputBox">
             <span>image 01 (required)</span>
             <input type="file" name="image_01" accept="image/jpg, image/jpeg, image/png, image/webp" class="box" required>
-        </div>
-        <div class="inputBox">
+         </div>
+
+         <div class="inputBox">
             <span>image 02 (required)</span>
             <input type="file" name="image_02" accept="image/jpg, image/jpeg, image/png, image/webp" class="box" required>
-        </div>
-        <div class="inputBox">
+         </div>
+       
+         <div class="inputBox">
             <span>image 03 (required)</span>
             <input type="file" name="image_03" accept="image/jpg, image/jpeg, image/png, image/webp" class="box" required>
-        </div>
-         <div class="inputBox">
-            <span>product details (required)</span>
-            <textarea name="details" placeholder="enter product details" class="box" required maxlength="500" cols="30" rows="10"></textarea>
          </div>
+
       </div>
       
       <input type="submit" value="add product" class="btn" name="add_product">
@@ -153,6 +173,7 @@ if(isset($_GET['delete'])){
    <div class="box">
       <img src="uploaded_img/<?= $fetch_products['image_01']; ?>" alt="">
       <div class="name"><?= $fetch_products['name']; ?></div>
+      <div class="category"><?= $fetch_products['category']; ?></div>
       <div class="price">$<span><?= $fetch_products['price']; ?></span></div>
       <div class="details"><span><?= $fetch_products['details']; ?></span></div>
       <div class="flex-btn">

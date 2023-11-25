@@ -92,11 +92,11 @@ section{
 select {
    text-align: center;
    padding: 1rem;
-   
+   color: var(--white-color);
    font-size: 1.8rem;
    border: 1px solid #ccc;
    box-shadow: var(--box-shadow);
-   background-color: var(--red-100);
+   background-color: var(--red-500);
    border-radius: .5rem;
    outline: none;
    width: 30rem;
@@ -117,8 +117,10 @@ select:after {
 
     /* Style for options */
 select option {
-   background-color: var(--red-100); 
+   background-color: #f0f0f0 !important;
    color: var(--black-600);
+   border: 1px solid #ccc;
+   box-shadow: var(--box-shadow);
 
 }
 
@@ -126,7 +128,8 @@ select option {
 select:hover,
 select:focus {
    border-color: var(--black-color);
-   background-color: var(--red-200);
+   background-color: var(--red-100);
+   color: var(--black-900);
 }
 
 
@@ -219,7 +222,7 @@ select:focus {
    border: var(--border);
    box-shadow: var(--box-shadow);
    text-align: center;
-   color:var(--red);
+   color:var(--red-600);
    border-radius: .5rem;
    font-size: 2rem;
    text-transform: capitalize;
@@ -254,13 +257,17 @@ select:focus {
    position: relative;
 }
 
-.header .flex .logo{
+.header .flex img{
    opacity: 0.8;
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
 }
 
-.header .flex .logo:hover{
+.header .flex img:hover{
    opacity: 1;
    transform: scale(1.5);
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
 }
 
 .header .flex .navbar a{
@@ -581,12 +588,6 @@ select:focus {
    overflow: hidden;
 }
 
-
-
-
-
-
-
 .products .box-container .box img{
    height: 20rem;
    width: 100%;
@@ -626,7 +627,7 @@ select:focus {
 }
 
 .form-container .message{
-   position: sticky;
+   position: relative;
    top:0;
    max-width: 1200px;
    margin:0 auto;
@@ -638,7 +639,7 @@ select:focus {
    justify-content: center;
    gap:1.5rem;
    z-index: 1100;
-
+   overflow: hidden;
 }
 .form-container .message span{
    font-size: 2rem;

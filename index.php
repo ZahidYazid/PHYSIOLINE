@@ -54,7 +54,7 @@ include 'wishlist_cart.php';
 
          <div class="swiper-slide slide">
             <div class="image-sw">
-               <img src="images/Electrotherapy.png" alt="">
+               <img src="images/Electro.png" alt="">
             </div>
             <div class="content-sw">
                <span>upto 30% off with free shopping</span>
@@ -83,53 +83,31 @@ include 'wishlist_cart.php';
 </div>
 
    <section class="category">
-
       <h1 class="heading">Products by category</h1>
 
+      <?php
+      // Fetch category names from the database
+      $select_categories = $conn->prepare("SELECT * FROM `categories`");
+      $select_categories->execute();
+      ?>
+
       <div class="swiper category-slider">
-
          <div class="swiper-wrapper">
-
-            <a href="category.php?category=Exercise" class="swiper-slide slide">
-               <img src="images/istockphoto.png" alt="">
-               <h3>Exercise</h3>
-            </a>
-
-            <a href="category.php?category=Electrotherapy" class="swiper-slide slide">
-               <img src="images/machines.png" alt="">
-               <h3>Electrotherapy</h3>
-            </a>
-
-            <a href="category.php?category=Heat and cold therapy" class="swiper-slide slide">
-               <img src="images/Heat-cold-therapy.png" alt="">
-               <h3>Heat and cold therapy</h3>
-            </a>
-
-            <a href="category.php?category=Balance and stability" class="swiper-slide slide">
-               <img src="images/Balance-stability.png" alt="">
-               <h3>Balance and stability</h3>
-            </a>
-
-            <a href="category.php?category=Mobility aids" class="swiper-slide slide">
-               <img src="images/Mobility-Aids.png" alt="">
-               <h3>Mobility aids</h3>
-            </a>
-
-            <a href="category.php?category=Massage and manual therapy" class="swiper-slide slide">
-               <img src="images/massage-therapy.png" alt="">
-               <h3>Massage and manual therapy</h3>
-            </a>
-
-            <a href="category.php?category=Others" class="swiper-slide slide">
-               <img src="images/Others.png" alt="">
-               <h3>Others</h3>
-            </a>
+            <?php
+            while ($fetch_category = $select_categories->fetch(PDO::FETCH_ASSOC)) {
+            ?>
+            <div class="swiper-slide slide">
+               <a href="category.php?category=<?= $fetch_category['category_name']; ?>">
+               <img src="images/<?= $fetch_category['category_image']; ?>" alt="">
+               <h3><?= $fetch_category['category_name']; ?></h3>
+               </a>
+            </div>
+               <?php } ?>
          </div>
-
          <div class="swiper-pagination"></div>
       </div>
-
    </section>
+
 
    <section class="home-products">
       <h1 class="heading">shop products</h1>

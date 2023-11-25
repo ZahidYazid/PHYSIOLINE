@@ -86,7 +86,7 @@ if(isset($_POST['submit'])){
       </div>
 
          <input type="submit" name="submit" value="login now" class="btn">
-         <p class="form-bottom-message">Forgot your <a href="register.php">password?</a></p>
+         <p class="form-bottom-message">Forgot your <a href="forgot_password.php">password?</a></p>
          <p>Don't have an account? <a href="register.php">register now</a></p>
    </form>
 
