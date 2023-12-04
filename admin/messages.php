@@ -7,7 +7,7 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:admin_login.php');
+   header('location:index.php');
 };
 
 if(isset($_GET['delete'])){
@@ -36,7 +36,7 @@ if(isset($_GET['delete'])){
 
 <?php include 'admin_header.php'; ?>
 
-<section class="contacts">
+<section class="messages">
 
 <h1 class="heading">messages</h1>
 

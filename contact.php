@@ -177,23 +177,30 @@ if(isset($_POST['send'])){
 </section>
 
 <section class="contact">
-   <div>
+
+   <div class="row">
+
+      <div class="image">
+         <img src="images/Brooklyn-map.jpeg" alt="Physio" style="width:100%; height: 100%;">
+      </div>
+
       <div class="text">
       
          <h1> Nous contacter </h1>
       
-         <h2>Our teams and our partners operate throughout the United States and around the world to provide you with quality service without borders.</h2>
+         <p>Our teams and our partners operate throughout the United States and around the world to provide you with quality service without borders.</p>
 
-         <h2>A team at the head office is at your disposal for any information, by email or telephone.</h2>
+         <p>A team at the head office is at your disposal for any information, by email or telephone.</p>
 
-         <h2>PHYSIOLINE – PL Brooklyn NY, US 11209</h2>
+         <p>PHYSIOLINE – PL Brooklyn NY, US 11209</p>
 
-         <h2 href="tel:1234567890"><i class="fas fa-phone"></i> +1 (123) 456 7890 </h2>
-         <h2 href="tel:3216540987"><i class="fas fa-fax"></i> +1 (321) 654 0987</h2>
+         <p href="tel:1234567890"><i class="fas fa-phone"></i> +1 (123) 456 7890 </p>
+         <p href="tel:3216540987"><i class="fas fa-fax"></i> +1 (321) 654 0987</p>
+
       </div>
-      <div class="image">
-         <img src="images/Brooklyn-map.jpeg" alt="Physio" style="width:100%; height: 100%;">
-      </div>
+
+      
+
    </div>
 
 </section>

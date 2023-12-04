@@ -153,11 +153,8 @@ ERD for Online Physiotherapy Product Store:
 	UserID (PK)
 	Username
 	Password
-	FirstName
-	Lastname
 	Email
-	Address
-	Phone
+	Image
 
 - Cart table:
 	CartID (PK)
@@ -172,9 +169,12 @@ ERD for Online Physiotherapy Product Store:
 	ProductID (PK)
 	CategoryID (FK)
 	Name
-	Description
+	Details
 	Price
 	StockQuaantity
+	Image 01
+	Image 02
+	Image 03
 
 - Order table:
 	OrderID (PK)

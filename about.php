@@ -42,9 +42,9 @@ if(isset($_SESSION['user_id'])){
       </div>
 
       <div class="content">
-         <h3>Our mission.</h3>
+         <h1>Our mission.</h1>
          <p>Ensuring quality care with our supplies.</p>
-         <h3>Our vision.</h3>
+         <h1>Our vision.</h1>
          <p>We seek leadership in selling our products by providing medical products that improve people's quality of life.</p>
          <a href="contact.php" class="btn">contact us</a>
       </div>

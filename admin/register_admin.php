@@ -7,7 +7,7 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:admin_login.php');
+   header('location:index.php');
 }
 
 if(isset($_POST['submit'])){
@@ -59,6 +59,18 @@ if(isset($_POST['submit'])){
 
    <form action="" method="post">
       <h3>register now</h3>
+       <?php
+         if(isset($message)){
+            foreach($message as $message){
+               echo '
+               <div class="message">
+                  <span>'.$message.'</span>
+                  <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+               </div>
+               ';
+            }
+         }
+      ?>
       <input type="text" name="name" required placeholder="enter your username" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="pass" required placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" required placeholder="confirm your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">

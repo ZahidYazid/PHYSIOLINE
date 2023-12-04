@@ -7,7 +7,7 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:admin_login.php');
+   header('location:index.php');
 };
 
 if(isset($_POST['add_category'])){
@@ -82,6 +82,18 @@ if(isset($_GET['delete'])){
    <h1 class="heading">add category</h1>
 
    <form action="" method="post" enctype="multipart/form-data">
+      <?php
+         if(isset($message)){
+            foreach($message as $message){
+               echo '
+               <div class="message">
+                  <span>'.$message.'</span>
+                  <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+               </div>
+               ';
+            }
+         }
+      ?>
       <div class="flex">
 
          <div class="inputBox">

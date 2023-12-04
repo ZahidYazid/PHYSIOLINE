@@ -69,10 +69,34 @@ html{
    overflow-x: hidden;
 }
 
-body{
-   background-color: var(--white-color);
+/* Light mode styles */
+
+body {
+    background-color: var(--white-color);
+    color: var(--black-900);
 }
 
+/* Dark mode styles */
+body.dark-mode {
+    background-color: var(--black-900);
+    color: var(--white-color);
+}
+
+/* Dark mode styles for shared elements */
+body.dark-mode header,
+body.dark-mode footer {
+    background-color: var(--black-700);
+    color: var(--white-color);
+}
+
+/*
+body.dark-mode .header .flex .navbar a{
+   margin:0 1rem;
+   font-size: 2rem;
+   color:var(--white-color);
+}*/
+
+/*
 body.active{
    --white-color:#111;
    --black-color:#fff;
@@ -80,13 +104,18 @@ body.active{
    background: #222;
 }
 
+/* Dark mode styles */
+/*.dark-mode {
+    background-color: black;
+    color: white;
+    /* Other style changes for dark mode */
+/*}*/
+
 section{
    padding:2rem;
    max-width: 1200px;
    margin:0 auto;
 }
-
-
 
 /* Basic select box styles */
 select {
@@ -132,7 +161,11 @@ select:focus {
    color: var(--black-900);
 }
 
-
+body.dark-mode select {
+    background-color: var(--black-800);
+    color: var(--white-color);
+    /* Other dark mode styles */
+}
 
 .heading{
    font-size: 4rem;
@@ -140,6 +173,10 @@ select:focus {
    margin-bottom: 2rem;
    text-align: center;
    text-transform: uppercase;
+}
+
+body.dark-mode .heading{
+   color:var(--black-500);
 }
 
 .update-btn,
@@ -151,8 +188,8 @@ select:focus {
    padding:1rem 3rem;
    font-size: 1.7rem;
    text-transform: capitalize;
-   color:var(--black);
-   background-color: var(--black-200);
+   color:var(--white-color);
+   background-color: var(--red-600);
    cursor: pointer;
    text-align: center;
 }
@@ -160,11 +197,16 @@ select:focus {
 .update-btn:hover,
 .logout-btn:hover,
 .login-btn:hover,
-.register-btn:hover{
-   background-color: var(--black-600);
-   color: var(--white-color);
+.register-btn:hover,
+/* Dark mode for buttons */
+body.dark-mode .update-btn:hover,
+body.dark-mode .logout-btn:hover,
+body.dark-mode .login-btn:hover,
+body.dark-mode .register-btn:hover{
+   background-color: var(--black-900);
+   color: var(--red-200);
 }
-
+/*
 .update-btn{
    background-color: var(--black-200);
 }
@@ -177,6 +219,7 @@ select:focus {
 .register-btn{
    background-color: var(--black-200);
 }
+*/
 
 .btn,
 .delete-btn,
@@ -188,7 +231,7 @@ select:focus {
    padding:1rem 3rem;
    font-size: 1.7rem;
    text-transform: capitalize;
-   color:var(--white);
+   color:var(--white-color);
    background-color: var(--red-600);
    cursor: pointer;
    text-align: center;
@@ -196,11 +239,15 @@ select:focus {
 
 .btn:hover,
 .delete-btn:hover,
-.option-btn:hover{
-   background-color: var(--black);
+.option-btn:hover,
+/* Dark mode for buttons */
+body.dark-mode .btn:hover,
+body.dark-mode .delete-btn:hover,
+body.dark-mode .option-btn:hover{
+   background-color: var(--black-900);
    color: var(--red-200);
 }
-
+/*
 .btn{
    background-color: var(--red-600);
 }
@@ -210,6 +257,7 @@ select:focus {
 .delete-btn{
    background-color: var(--red-600);
 }
+*/
 
 .navbar{
    display: flex;
@@ -230,6 +278,12 @@ select:focus {
    display: block;
 }
 
+/* Dark mode for other elements */
+body.dark-mode .empty {
+    background-color: var(--black-800);
+    color: var(--red-600);
+}
+
 .disabled{
    pointer-events: none;
    user-select: none;
@@ -248,6 +302,12 @@ select:focus {
    background-color: var(--white);
    box-shadow: var(--box-shadow);
    z-index: 1000;
+}
+
+/* Dark mode for specific elements */
+body.dark-mode .header {
+    background-color: var(--black-700); /* Dark background */
+    color: var(--white-color); /* Light text */
 }
 
 .header .flex{
@@ -276,21 +336,41 @@ select:focus {
    color:var(--black);
 }
 
-.header .flex .navbar a:hover{
+body.dark-mode .header .flex .navbar{
+   background-color: var(--black-700);
+}
+
+body.dark-mode .header .flex .navbar a{
+   color:var(--light-bg);
+}
+
+.header .flex .navbar a:hover,
+body.dark-mode .header .flex .navbar a:hover{
    color:var(--red-600);
    letter-spacing: .4rem;
+}
+
+/* Dark mode for icons */
+body.dark-mode .icons #menu-btn {
+    background-color: var(--black-700); /* Dark background */
+    color: var(--white-color); /* Light text */
 }
 
 .header .flex .icons > *{
    margin-left: 1rem;
    font-size: 2.5rem;
    cursor: pointer;
-   color:var(--black);
+   color:var(--black-900);
 }
 
-.header .flex .icons > *:hover{
+body.dark-mode .header .flex .icons > *{
+   color:var(--light-bg);
+}
+
+.header .flex .icons > *:hover,
+body.dark-mode .header .flex .icons > *:hover{
    background: var(--red-600);
-   color:#fff;
+   color:var(--light-bg);
 }
 
 .header .flex .icons a span{
@@ -311,6 +391,12 @@ select:focus {
    animation:fadeIn .2s linear;
 }
 
+body.dark-mode .header .flex .profile{
+   background-color: var(--black-700);
+   box-shadow: var(--box-shadow);
+   border:1px solid var(--white-color);
+}
+
 .header .flex .profile.active{
    display: inline-block;
 }
@@ -324,6 +410,10 @@ select:focus {
    border-bottom: 1px solid;
 }
 
+body.dark-mode .header .flex .profile p{
+   color:var(--light-bg);
+}
+
 #menu-btn{
    display: none;
 }
@@ -332,6 +422,10 @@ select:focus {
    background: url(../images/banner-blue.png) no-repeat;
    background-size: cover;
    background-position: center;
+}
+
+body.dark-mode .home-grand{
+   background: url(../images/banner-blue-dark.png) no-repeat;
 }
 
 .home-grand .slide{
@@ -378,6 +472,10 @@ select:focus {
    width: auto;
 }
 
+body.dark-mode .home-grand .slide .content-sw .btn:hover{
+   background-color: var(--black-600);
+}
+
 .swiper-pagination-bullet-active{
    background-color: var(--red-600);
 }
@@ -392,8 +490,13 @@ select:focus {
    border-radius: .5rem;
 }
 
+body.dark-mode .category .slide{
+   background: var(--black-800);
+   border: 1px solid var(--white-color);
+}
+
 .category .slide:hover{
-   transform: scale(1.1);
+   transform: scale(1.01);
 }
 
 .category .slide:hover h3{
@@ -415,6 +518,10 @@ select:focus {
    user-select: none;
 }
 
+body.dark-mode .category .slide h3{
+   color:var(--black-200);
+}
+
 .home-products .slide{
    position: relative;
    padding:2rem;
@@ -425,6 +532,11 @@ select:focus {
    margin-bottom: 5rem;
    overflow: hidden;
    user-select: none;
+}
+
+body.dark-mode .home-products .slide{
+   background-color: var(--black-700);
+   border: 1px solid var(--white-color);
 }
 
 .home-products .slide:hover{
@@ -443,11 +555,27 @@ select:focus {
    color:var(--black);
 }
 
+body.dark-mode .home-products .slide .name{
+   color:var(--black-300);
+}
+
 .home-products .slide .flex{
    display: flex;
    align-items: center;
    justify-content: space-between;
    gap:1rem;
+}
+
+.home-products .slide .flex .price{
+   text-align: center;
+   width: 7rem;
+   margin:1rem 0;
+   padding-top: .9rem;
+   padding-bottom: .9rem;
+   font-size: 2rem;
+   color:var(--red);
+   border:var(--border);
+   border-radius: .5rem;
 }
 
 .home-products .slide .flex .qty{
@@ -459,15 +587,11 @@ select:focus {
    border-radius: .5rem;
 }
 
-.home-products .slide .flex .price{
-   text-align: center;
-   width: 7rem;
-   /*margin:1rem 0;*/
-   padding: 1rem;
-   font-size: 2rem;
-   color:var(--red);
-   border:var(--border);
-   border-radius: .5rem;
+body.dark-mode .home-products .slide .flex .price,
+body.dark-mode .home-products .slide .flex .qty{
+   color:var(--red-600);
+   background-color: var(--black-700);
+   border: 1px solid var(--white-color);
 }
 
 .quick-view form{
@@ -477,6 +601,11 @@ select:focus {
    background-color: var(--white);
    box-shadow: var(--box-shadow);
    margin-top: 1rem;
+}
+
+body.dark-mode .quick-view form{
+   background-color: var(--black-600);
+   border: 1px solid var(--white-color);
 }
 
 .quick-view form .row{
@@ -514,6 +643,12 @@ select:focus {
    transition: .2s linear;
    border: var(--border);
    box-shadow: var(--box-shadow);
+   max-width: 100%;
+    height: auto;
+}
+
+body.dark-mode .quick-view form .row .image-container .sub-image img{
+   filter: brightness(100%);
 }
 
 .quick-view form .flex .image-container .sub-image img:hover{
@@ -531,17 +666,33 @@ select:focus {
    flex:1 1 40rem;
 }
 
-.quick-view form .row .content .name{
-   font-size: 2rem;
-   color:var(--black);
-}
-
 .quick-view form .row .flex{
    display: flex;
    align-items: center;
    justify-content: space-between;
    gap:1rem;
    margin:1rem 0;
+}
+
+.quick-view form .row .content .name{
+   font-size: 2rem;
+   color:var(--black);
+}
+
+body.dark-mode .quick-view form .row .content .name{
+   color:var(--black-400);
+}
+
+.quick-view form .row .flex .price{
+   text-align: center;
+   width: 7rem;
+   margin:1rem 0;
+   padding-top: .9rem;
+   padding-bottom: .9rem;
+   font-size: 2rem;
+   color:var(--red);
+   border:var(--border);
+   border-radius: .5rem;
 }
 
 .quick-view form .row .flex .qty{
@@ -553,15 +704,9 @@ select:focus {
    border-radius: .5rem;
 }
 
-.quick-view form .row .flex .price{
-   text-align: center;
-   width: 7rem;
-   /*margin:1rem 0;*/
-   padding: 1rem;
-   font-size: 2rem;
-   color:var(--red);
-   border:var(--border);
-   border-radius: .5rem;
+body.dark-mode .quick-view form .row .flex .qty{
+   color:var(--black-200);
+   background-color: var(--black-600);
 }
 
 .quick-view form .row .content .details{
@@ -569,6 +714,10 @@ select:focus {
    color:var(--light-color);
    line-height: 2;
 }  
+
+body.dark-mode .quick-view form .row .content .details{
+   color:var(--black-300);
+}
 
 .products .box-container{
    display: grid;
@@ -588,6 +737,11 @@ select:focus {
    overflow: hidden;
 }
 
+body.dark-mode .products .box-container .box{
+   background-color: var(--black-700); 
+   border: 1px solid var(--white-color);
+}
+
 .products .box-container .box img{
    height: 20rem;
    width: 100%;
@@ -598,6 +752,10 @@ select:focus {
 .products .box-container .box .name{
    font-size: 2rem;
    color:var(--black);
+}
+
+body.dark-mode .products .box-container .box .name{
+   color:var(--black-400);
 }
 
 .products .box-container .box .flex{
@@ -615,11 +773,17 @@ select:focus {
    border-radius: .5rem;
 }
 
+body.dark-mode .products .box-container .box .flex .qty{
+   color:var(--black-200);
+   background-color: var(--black-700);
+}
+
 .products .box-container .box .flex .price{
    text-align: center;
    width: 7rem;
-   /*margin:1rem 1rem;*/
-   padding: 1rem;
+   margin:1rem 0;
+   padding-top: .9rem;
+   padding-bottom: .9rem;
    font-size: 2rem;
    color:var(--red);
    border:var(--border);
@@ -631,25 +795,40 @@ select:focus {
    top:0;
    max-width: 1200px;
    margin:0 auto;
-   background-color: var(--red-604);
+   background-color: var(--black-800);
    border-radius: .5rem;
    padding:2rem;
    display: flex;
    align-items: center;
    justify-content: center;
    gap:1.5rem;
-   z-index: 1100;
+   /*z-index: 1100;*/
    overflow: hidden;
 }
-.form-container .message span{
-   font-size: 2rem;
-   color:var(--red-600);
+
+body.dark-mode .form-container .message{
+   background-color: var(--red-602);
 }
 
-.form-container .message i{
+.form-container .message span{
+   font-size: 2rem;
+   color:var(--red-500);
+}
+
+body.dark-mode .form-container .message span{
+   font-size: 2rem;
+   color:var(--red-100);
+}
+
+.form-container .message i,
+body.dark-mode .form-container .message i:hover{
    cursor: pointer;
-   color:var(--red-600);
+   color:var(--red-500);
    font-size: 2.5rem;
+}
+
+body.dark-mode .form-container .message i{
+   color:var(--red-100);
 }
 
 .form-container .message i:hover{
@@ -667,10 +846,19 @@ select:focus {
    max-width: 50rem;
 }
 
+body.dark-mode .form-container form{
+   background-color: var(--black-800);
+   border: 1px solid var(--white-color);
+}
+
 .form-container form h3{
    font-size: 2.5rem;
    text-transform: uppercase;
    color:var(--black);
+}
+
+body.dark-mode .form-container form h3{
+   color:var(--black-200);
 }
 
 .form-container form label{
@@ -678,11 +866,18 @@ select:focus {
    color:var(--black);
 }
 
+body.dark-mode .form-container form label{
+   color:var(--black-300);
+}
 
 .form-container form p{
    font-size: 1.7rem;
    color:var(--light-color);
    margin:1.5rem 0;
+}
+
+body.dark-mode .form-container form p{
+   color:var(--black-300);
 }
 
 .form-container form .box{
@@ -693,6 +888,10 @@ select:focus {
    color:var(--black);  
    width: 100%;
    border-radius: .5rem;
+}
+
+body.dark-mode .form-container form .box{
+   background-color: var(--black-100);
 }
 
 .form-container .input-container{
@@ -710,6 +909,10 @@ select:focus {
   transform: translateY(-50%);
 }
 
+body.dark-mode .form-container .input-container i{
+  color: var(--black-700);
+}
+
 .form-container .password-container .eye{
    position: absolute;
    top: 50%;
@@ -724,6 +927,69 @@ select:focus {
 
 #hide{
    display: none;
+}
+
+.reviews .slide{
+   padding:2rem;
+   text-align: center;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
+   border:1px solid;
+   margin-bottom: 5rem;
+   user-select: none;
+}
+
+body.dark-mode .reviews .slide{
+   background-color: var(--black-800);
+}
+
+.reviews .slide .client-name{
+   color: var(--black-color);
+   font-size: 3rem;
+}
+
+body.dark-mode .reviews .slide .client-name{
+   color: var(--black-300);
+   font-size: 3rem;
+}
+
+.reviews .slide .client-rate img{
+   font-size: 3rem;
+}
+
+.reviews .slide .client-subject{
+   padding: 1rem 0;
+   line-height: 2;
+   font-size: 2.5rem;
+   color: var(--black-color);
+}
+
+body.dark-mode .reviews .slide .client-subject{
+   color: var(--black-300);
+}
+
+.reviews .slide .client-mess{
+   color: var(--black-color);
+   font-size: 2rem;
+}
+
+body.dark-mode .reviews .slide .client-mess{
+   color: var(--black-300);
+}
+
+.about {
+   background-color: var(--white-color);
+   border-radius: .5rem;
+   border: 1px solid var(--black-900);
+   box-shadow: var(--box-shadow);
+   margin-bottom: 3rem;
+   margin-top: 3rem;
+}
+
+body.dark-mode .about {
+   background-color: var(--black-700);
+   border: 1px solid var(--white-color);
 }
 
 .about .row{
@@ -745,16 +1011,25 @@ select:focus {
    flex:1 1 40rem;
 }
 
-.about .row .content h3{
-   font-size: 3rem;
+.about .row .content h1{
+   font-size:2.5rem;
    color:var(--black);
+}
+
+body.dark-mode .about .row .content h1{
+   font-size:2.5rem;
+   color:var(--black-300);
 }
 
 .about .row .content p{
    line-height: 2;
-   font-size: 1.5rem;
+   font-size: 2rem;
    color:var(--light-color);
    padding:1rem 0;
+}
+
+body.dark-mode .about .row .content p{
+   color:var(--black-300);
 }
 
 .about .row .content .btn{
@@ -762,64 +1037,67 @@ select:focus {
    width: auto;
 }
 
-.reviews .slide{
-   padding:2rem;
-   text-align: center;
-   background-color: var(--white);
+.contact {
+   border-radius: .5rem;
+   border:var(--border);
    box-shadow: var(--box-shadow);
-   border-radius: .5rem;
-   border:1px solid;
-   margin-bottom: 5rem;
-   user-select: none;
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+   margin-bottom: 2rem;
 }
 
-.reviews .slide .client-name{
-   color: var(--black-color);
-   font-size: 3rem;
+body.dark-mode .contact {
+   background-color: var(--black-700);
+   border: 1px solid var(--white-color);
 }
 
-.reviews .slide .client-subject{
-   padding: 1rem 0;
+.contact .row{
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   gap:1.5rem;
+}
+
+.contact .row .text{
+   flex:1 1 40rem;
+}
+
+body.dark-mode .contact .row .text{
+   background-color: var(--black-700);
+}
+
+.contact .row .image{
+   flex:1 1 40rem;
+}
+
+.contact .row .image img{
+   width: 100%;
+}
+
+body.dark-mode .contact .row .image{
+   background-color: var(--black-800);
+}
+
+.contact .row .text h1{
+   text-align: center;
+   color:var(--black-900);
+   font-size: 2.5rem;
+   margin-bottom: 2rem;
+}
+
+body.dark-mode .contact .row .text h1{
+   color:var(--black-300);
+}
+
+.contact .row .text p{
    line-height: 2;
-   font-size: 2.5rem;
-   color: var(--black-color);
+   font-size: 1.8rem;
+   color:var(--black-900);
+   padding:.5rem 0;
 }
 
-.reviews .slide .client-mess{
-   color: var(--black-color);
-   font-size: 2rem;
-}
-
-.contact div .text{
-   padding:2rem;
-   text-align: center;
-   background-color: var(--white-color);
-   box-shadow: none;
-   border-radius: .5rem;
-   border:none;
-   max-width: 50rem;
-   margin:0 auto;
-}
-
-.contact div .image{
-   padding:2rem;
-   text-align: center;
-   background-color: var(--white-color);
-   box-shadow: none;
-   border-radius: .5rem;
-   border:none;
-   max-width: 50rem;
-   margin:0 auto;
-}
-
-.contact div .text h1{
-   font-size: 2.5rem;
-   margin-bottom: 1rem;
-}
-
-.contact div .text h2{
-   font-size: 2rem;
-   margin-bottom: 1rem;
+body.dark-mode .contact .row .text p{
+   color:var(--black-200);
 }
 
 .search-form form{
@@ -838,6 +1116,11 @@ select:focus {
    color:var(--black);
 }
 
+body.dark-mode .search-form form input{
+   background-color: var(--black-700);
+   color:var(--white-color);
+}
+
 .search-form form button{
    font-size: 2.5rem;
    height: 5.5rem;
@@ -854,6 +1137,14 @@ select:focus {
    background-color: var(--black);
 }
 
+body.dark-mode .search-form form button{
+   background-color: var(--black-700);
+}
+
+body.dark-mode .search-form form button:hover{
+   background-color: var(--red-600);
+}
+
 .wishlist-total{
    max-width: 50rem;
    margin:0 auto;
@@ -865,34 +1156,33 @@ select:focus {
    text-align: center;
 }
 
+body.dark-mode .wishlist-total{
+   background-color: var(--black-800);
+   border: 1px solid var(--white-color);
+}
+
 .wishlist-total p{
    font-size: 2.5rem;
    color:var(--black);
    margin-bottom: 2rem;
 }
 
+body.dark-mode .wishlist-total p{
+   color:var(--black-400);
+}
+
 .wishlist-total p span{
    color:var(--red);
 }
 
-.shopping-cart .fa-edit{
-   height: 4.5rem;
-   border-radius: .5rem;
-   background-color: var(--orange);
-   width: 5rem;
-   font-size: 2rem;
-   color:var(--white);
-   cursor: pointer;
-}
-
-.shopping-cart .fa-edit:hover{
-   background-color: var(--black);
-}
-
 .shopping-cart .sub-total{
-   margin:2rem 0;
-   font-size: 2rem;
-   color:var(--light-color);
+   color:var(--black-900);
+   font-size: 1.8rem;
+}
+
+body.dark-mode .shopping-cart .sub-total{
+   color:var(--black-300);
+   font-size: 1.8rem;
 }
 
 .shopping-cart .sub-total span{
@@ -910,10 +1200,19 @@ select:focus {
    text-align: center;
 }
 
+body.dark-mode .cart-total{
+   background-color: var(--black-800);
+   border: 1px solid var(--white-color);
+}
+
 .cart-total p{
    font-size: 2.5rem;
    color:var(--black);
    margin-bottom: 2rem;
+}
+
+body.dark-mode .cart-total p{
+   color:var(--black-300);
 }
 
 .cart-total p span{
@@ -937,8 +1236,12 @@ select:focus {
    border-radius: .5rem;
 }
 
+body.dark-mode .display-orders p{
+   background-color: var(--black-800);
+}
+
 .display-orders p span{
-   color:var(--red);
+   color:var(--red-600);
 }
 
 .display-orders .grand-total{
@@ -948,8 +1251,12 @@ select:focus {
    color:var(--light-color);
 }
 
+body.dark-mode .display-orders .grand-total{
+   color:var(--black-700);
+}
+
 .display-orders .grand-total span{
-   color:var(--red);
+   color:var(--red-600);
 }
 
 .checkout-orders form{
@@ -958,6 +1265,11 @@ select:focus {
    background-color: var(--white);
    box-shadow: var(--box-shadow);
    border-radius: .5rem;
+}
+
+body.dark-mode .checkout-orders form{
+   background-color: var(--black-800);
+   border: 1px solid var(--white-color);
 }
 
 .checkout-orders form h3{
@@ -969,6 +1281,11 @@ select:focus {
    text-transform: uppercase;
    margin-bottom: 2rem;
    font-size: 2.5rem;
+}
+
+body.dark-mode .checkout-orders form h3{
+   background-color: var(--black-700);
+   color:var(--black-400);
 }
 
 .checkout-orders form .flex{
@@ -991,11 +1308,21 @@ select:focus {
    padding:1.2rem 1.4rem;
    margin:1rem 0;
    background-color: var(--light-bg);
+   text-align: left;
+}
+
+body.dark-mode .checkout-orders form .flex .inputBox .box{
+   color:var(--black-700);
+   background-color: var(--black-200);
 }
 
 .checkout-orders form .flex .inputBox span{
    font-size: 1.8rem;
    color:var(--light-color);
+}
+
+body.dark-mode .checkout-orders form .flex .inputBox span{
+   color:var(--black-400);
 }
 
 .orders .box-container{
@@ -1005,13 +1332,20 @@ select:focus {
    align-items: flex-start;
 }
 
-.orders .box-container .box{
-   padding:1rem 2rem;
-   flex:1 1 40rem;
-   border:var(--border);
-   background-color: var(--white);
+body.dark-mode .orders {
+   background-color: var(--black-700);
+   border: 1px solid var(--white-color);
+   border-radius: 0.5rem;
+   margin-top:3rem;
+   margin-bottom:3rem;
+}
+
+.orders {
+   border: 1px solid var(--black-900);
    box-shadow: var(--box-shadow);
-   border-radius: .5rem;
+   border-radius: 0.5rem;
+   margin-top:3rem;
+   margin-bottom:3rem;
 }
 
 .orders .box-container .box p{
@@ -1019,6 +1353,10 @@ select:focus {
    line-height: 1.8;
    font-size: 2rem;
    color:var(--light-color);
+}
+
+body.dark-mode .orders .box-container .box p{
+   color:var(--black-200);
 }
 
 .orders .box-container .box p span{
@@ -1043,6 +1381,10 @@ select:focus {
    text-transform: capitalize;
 }
 
+body.dark-mode .footer .grid .box h3{
+   color:var(--black-300);
+}
+
 .footer .grid .box a{
    display: block;
    margin:1.5rem 0;
@@ -1050,12 +1392,16 @@ select:focus {
    color:var(--light-color);
 }
 
+body.dark-mode .footer .grid .box a{
+   color:var(--black-200);
+}
+
 .footer .grid .box a i{
    padding-right: 1rem;
    color:var(--red-600);
    transition: .2s linear;
 }
-
+body.dark-mode .footer .grid .box a:hover,
 .footer .grid .box a:hover{
    color:var(--red-600);
 }
@@ -1070,6 +1416,10 @@ select:focus {
    border-top: var(--border);
    font-size: 2rem;
    color:var(--black);
+}
+
+body.dark-mode .footer .credit{
+   color:var(--black-300);
 }
 
 .footer .credit span{
@@ -1110,6 +1460,8 @@ select:focus {
       transition: .2s linear;
       clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
    }
+
+
 
    .header .flex .navbar.active{
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);

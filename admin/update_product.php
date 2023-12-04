@@ -7,7 +7,7 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:admin_login.php');
+   header('location:index.php');
 }
 
 if(isset($_POST['update'])){
@@ -15,13 +15,15 @@ if(isset($_POST['update'])){
    $pid = $_POST['pid'];
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $quantity = $_POST['quantity'];
+   $quantity = filter_var($quantity, FILTER_SANITIZE_STRING);
    $price = $_POST['price'];
    $price = filter_var($price, FILTER_SANITIZE_STRING);
    $details = $_POST['details'];
    $details = filter_var($details, FILTER_SANITIZE_STRING);
 
-   $update_product = $conn->prepare("UPDATE `products` SET name = ?, price = ?, details = ? WHERE id = ?");
-   $update_product->execute([$name, $price, $details, $pid]);
+   $update_product = $conn->prepare("UPDATE `products` SET name = ?, quantity = ?, price = ?, details = ? WHERE id = ?");
+   $update_product->execute([$name, $quantity, $price, $details, $pid]);
 
    $message[] = 'product updated successfully!';
 
@@ -114,12 +116,27 @@ if(isset($_POST['update'])){
       if($select_products->rowCount() > 0){
          while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){ 
    ?>
+
+    
    <form action="" method="post" enctype="multipart/form-data">
+      <?php
+         if(isset($message)){
+            foreach($message as $message){
+               echo '
+               <div class="message">
+                  <span>'.$message.'</span>
+                  <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+               </div>
+               ';
+            }
+         }
+      ?>
       <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
       <input type="hidden" name="old_image_01" value="<?= $fetch_products['image_01']; ?>">
       <input type="hidden" name="old_image_02" value="<?= $fetch_products['image_02']; ?>">
       <input type="hidden" name="old_image_03" value="<?= $fetch_products['image_03']; ?>">
       <div class="image-container">
+           
          <div class="main-image">
             <img src="uploaded_img/<?= $fetch_products['image_01']; ?>" alt="">
          </div>
@@ -131,6 +148,8 @@ if(isset($_POST['update'])){
       </div>
       <span>update name</span>
       <input type="text" name="name" required class="box" maxlength="100" placeholder="enter product name" value="<?= $fetch_products['name']; ?>">
+      <span>update quantity</span>
+      <input type="number" name="quantity" required class="box" min="0" max="9999999999" placeholder="enter product quantity" onkeypress="if(this.value.length == 10) return false;" value="<?= $fetch_products['quantity']; ?>">
       <span>update price</span>
       <input type="number" name="price" required class="box" min="0" max="9999999999" placeholder="enter product price" onkeypress="if(this.value.length == 10) return false;" value="<?= $fetch_products['price']; ?>">
       <span>update details</span>

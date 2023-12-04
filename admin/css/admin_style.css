@@ -70,7 +70,13 @@ html{
 
 body{
    background-color: var(--white-color);
-   /* padding-bottom: 10rem; */
+   color: var(--black-900);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: var(--black-900);
+    color: var(--white-color);
 }
 
 section{
@@ -85,6 +91,23 @@ section{
    margin-bottom: 2rem;
    text-align: center;
    text-transform: uppercase;
+   border-radius: 0.5rem;
+   border: 1px solid var(--black-900);
+   box-shadow: var(--box-shadow);
+}
+
+.admin-heading{
+   font-size: 4rem;
+   color:var(--red-500);
+   margin: 3rem;
+   text-align: center;
+   text-transform: uppercase;
+}
+
+body.dark-mode .heading{
+   color:var(--black-500);
+   background-color: var(--black-800);
+   border: 1px solid var(--white-color);
 }
 
 .btn,
@@ -98,7 +121,7 @@ section{
    font-size: 1.7rem;
    text-transform: capitalize;
    color:var(--white);
-   /*background-color: var(--red-100);*/
+   background-color: var(--red-500);
    cursor: pointer;
    text-align: center;
 }
@@ -106,10 +129,11 @@ section{
 .btn:hover,
 .delete-btn:hover,
 .option-btn:hover{
-   background-color: var(--black);
+   background-color: var(--black-800);
    color: var(--red-200);
 }
 
+/*
 .btn{
    background-color: var(--red-600);
 }
@@ -121,6 +145,7 @@ section{
 .delete-btn{
    background-color: var(--red-600);
 }
+*/
 
 .flex-btn{
    display: flex;
@@ -132,18 +157,19 @@ section{
    top:0;
    max-width: 1200px;
    margin:0 auto;
-   background-color: var(--light-bg);
+   background-color: var(--red-600);
+   border-radius: 0.5rem;
    padding:2rem;
    display: flex;
    align-items: center;
    justify-content: space-between;
    gap:1.5rem;
-   z-index: 1100;
+  /* z-index: 1100; */
 }
 
 .message span{
    font-size: 2rem;
-   color:var(--black);
+   color:var(--white-color);
 }
 
 .message i{
@@ -153,7 +179,7 @@ section{
 }
 
 .message i:hover{
-   color:var(--black);
+   color:var(--white-color);
 }
 
 .empty{
@@ -191,11 +217,20 @@ section{
    border:var(--border);
 }
 
+body.dark-mode .form-container form{
+   background-color: var(--black-700);
+   border:1px solid var(--white-color);
+}
+
 .form-container form h3{
    text-transform: uppercase;
    color:var(--black);
    margin-bottom: 1rem;
    font-size: 2.5rem;
+}
+
+body.dark-mode .form-container form h3{
+   color:var(--black-500);
 }
 
 .form-container form p{
@@ -227,6 +262,11 @@ section{
    z-index: 1000;
 }
 
+body.dark-mode .header{
+   background-color: var(--black-700);
+   color: var(--white-color);
+}
+
 .header .flex{
    display: flex;
    align-items: center;
@@ -236,11 +276,19 @@ section{
 
 .header .flex .logo{
    font-size: 2.5rem;
-   color:var(--black);
+   color:var(--black-900);
+}
+
+body.dark-mode .header .flex .logo{
+   color: var(--black-100);
 }
 
 .header .flex .logo span{
    color:var(--red-600);
+}
+
+body.dark-mode .header .flex .navbar{
+   background-color: var(--black-700);
 }
 
 .header .flex .navbar a{
@@ -249,10 +297,33 @@ section{
    color:var(--black);
 }
 
-.header .flex .navbar a:hover{
+body.dark-mode .header .flex .navbar a{
+   color: var(--light-bg);
+}
+
+.header .flex .navbar a:hover,
+body.dark-mode .header .flex .navbar a:hover{
    color:var(--red-600);
    text-decoration: underline;
 }
+
+.header .flex .icons > *{
+   margin-left: 1rem;
+   font-size: 2.5rem;
+   cursor: pointer;
+   color:var(--black-900);
+}
+
+body.dark-mode .header .flex .icons > *{
+   color: var(--light-bg);
+}
+
+/*
+.header .flex .icons > *:hover,
+body.dark-mode .header .flex .icons > *:hover{
+   color: var(--white-color)
+}
+*/
 
 .header .flex .icons div{
    margin-left: 1.7rem;
@@ -261,7 +332,8 @@ section{
    color:var(--black);
 }
 
-.header .flex .icons div:hover{
+.header .flex .icons div:hover,
+body.dark-mode .header .flex .icons div:hover{
    color:var(--red-600);
 }
 
@@ -279,6 +351,12 @@ section{
    animation:fadeIn .2s linear;
 }
 
+body.dark-mode .header .flex .profile{
+   background-color: var(--black-700);
+   box-shadow: var(--box-shadow);
+   border: 1px solid var(--white-color);
+}
+
 .header .flex .profile.active{
    display: inline-block;
 }
@@ -290,11 +368,15 @@ section{
    margin-bottom: 1rem;
 }
 
+body.dark-mode .header .flex .profile p{
+   color: var(--light-bg);
+}
+
 #menu-btn{
    display: none;
 }
 
-.dashboard .box-container{
+.dashboard .dashboard-slider{
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
    gap:1.5rem;
@@ -302,7 +384,21 @@ section{
    align-items: flex-start;
 }
 
-.dashboard .box-container .box{
+.dashboard .dashboard-slider .slide{
+   margin-bottom: 5rem;
+   /*box-shadow: var(--box-shadow);
+   border:var(--border);*/
+   text-align: center;
+   padding:1.5rem;
+   background: var(--white);
+   border-radius: .5rem;
+}
+
+body.dark-mode .dashboard .dashboard-slider .slide{
+   background: var(--black-900);
+}
+
+.dashboard .dashboard-slider .slide .box{
    padding:2rem;
    text-align: center;
    border:var(--border);
@@ -311,22 +407,39 @@ section{
    background-color: var(--white-color);
 }
 
-.dashboard .box-container .box h3{
-   font-size: 2.7rem;
-   color:var(--black);
+body.dark-mode .dashboard .dashboard-slider .slide .box{
+   background-color: var(--black-700);
+   border: 1px solid var(--white-color);
 }
 
-.dashboard .box-container .box h3 span{
+.dashboard .dashboard-slider .slide .box h3{
+   font-size: 2.7rem;
+   color:var(--black-900);
+}
+
+body.dark-mode .dashboard .dashboard-slider .slide .box h3{
+   color: var(--white-color);
+}
+
+.dashboard .dashboard-slider .slide .box h3 span{
    font-size: 2.5rem;
 }
 
-.dashboard .box-container .box p{
+.dashboard .dashboard-slider .slide .box p{
    /*padding:.1rem;*/
    border-radius: .5rem;
    background-color: var(--white-color);
+   border: var(--border);
+   box-shadow: var(--box-shadow);
    font-size: 2.5rem;
-   color:var(--red-602);
+   color:var(--red-500);
    margin:1rem 0;
+}
+
+body.dark-mode .dashboard .dashboard-slider .slide .box p{
+   background-color: var(--black-500);
+   border: 1px solid var(--light-bg);
+   color: var(--red-100);
 }
 
 .add-products form{
@@ -339,6 +452,11 @@ section{
    padding:2rem;
 }
 
+body.dark-mode .add-products form{
+   background-color: var(--black-700);
+   border: 1px solid var(--light-bg);
+}
+
 .add-products form .flex{
    display: flex;
    gap:1.5rem;
@@ -347,20 +465,29 @@ section{
 
 .add-products form .flex .inputBox{
    flex:1 1 25rem;
-} 
+}
 
 .add-products form span{
    font-size:1.7rem;
    color:var(--light-color);
 }
 
+body.dark-mode .add-products form span{
+   color: var(--light-bg);
+}
+
 .add-products form .box{
    font-size: 1.8rem;
    background-color: var(--red-100);
+   color: var(--light-color);
    border-radius: .5rem;
    padding:1.4rem;
    width: 100%;
    margin-top: 1.5rem;
+}
+
+body.dark-mode .add-products form .box{
+   background-color: var(--black-200);
 }
 
 .add-products form textarea{
@@ -384,6 +511,11 @@ section{
    padding:2rem;
 }
 
+body.dark-mode .show-products .box-container .box{
+   background-color: var(--black-700);
+   border: 1px solid var(--light-bg);
+}
+
 .show-products .box-container .box img{
    width: 100%;
    height: 20rem;
@@ -403,6 +535,18 @@ section{
    margin: 1rem;
 }
 
+body.dark-mode .show-products .box-container .box .name,
+body.dark-mode .show-products .box-container .box .category,
+body.dark-mode .show-products .box-container .box .quantity{
+   color: var(--white-color);
+}
+
+.show-products .box-container .box .quantity{
+   font-size: 2rem;
+   color:var(--black-700);
+   margin:.5rem 0;
+}
+
 .show-products .box-container .box .price{
    font-size: 2rem;
    color:var(--red-600);
@@ -415,6 +559,10 @@ section{
    line-height: 2;
 }
 
+body.dark-mode .show-products .box-container .box .details{
+   color: var(--black-100);
+}
+
 .update-product form{
    background-color: var(--white);
    box-shadow: var(--box-shadow);
@@ -423,6 +571,11 @@ section{
    padding:2rem;
    max-width: 50rem;
    margin:0 auto;
+}
+
+body.dark-mode .update-product form{
+   background-color: var(--black-700);
+   border: 1px solid var(--light-bg);
 }
 
 .update-product form .image-container{
@@ -450,6 +603,13 @@ section{
    border:var(--border);
    cursor: pointer;
    transition: .2s linear;
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+}
+
+body.dark-mode .update-product form .image-container .sub-image img{
+   border: 1px solid var(--light-bg);
+   box-shadow: var(--border);
 }
 
 .update-product form .image-container .sub-image img:hover{
@@ -461,14 +621,23 @@ section{
    border-radius: .5rem;
    padding:1.4rem;
    font-size: 1.8rem;
-   color:var(--black);
+   color:var(--black-900);
    background-color: var(--light-bg);
    margin:1rem 0;
+}
+
+body.dark-mode .update-product form .box{
+   background-color: var(--black-200);
+
 }
 
 .update-product form span{
    font-size: 1.7rem;
    color:var(--light-color);
+}
+
+body.dark-mode .update-product form span{
+   color: var(--black-100);
 }
 
 .update-product form textarea{
@@ -493,6 +662,11 @@ section{
    box-shadow: var(--box-shadow);
 }
 
+body.dark-mode .orders .box-container .box{
+   background-color: var(--black-700);
+   border: 1px solid var(--light-bg);
+}
+
 .orders .box-container .box p{
    line-height: 1.5;
    font-size: 2rem;
@@ -500,8 +674,16 @@ section{
    margin:1rem 0;
 }
 
+body.dark-mode .orders .box-container .box p{
+   color:var(--black-200);
+}
+
 .orders .box-container .box p span{
    color:var(--red-600);
+}
+
+body.dark-mode .orders .box-container .box p span{
+   color:var(--red-200);
 }
 
 .orders .box-container .select{
@@ -513,6 +695,10 @@ section{
    color:var(--black);
    border-radius: .5rem;
    border:var(--border);
+}
+
+body.dark-mode .orders .box-container .select{
+   background-color: var(--black-300);
 }
 
 .accounts .box-container{
@@ -533,17 +719,30 @@ section{
    box-shadow: var(--box-shadow);
 }
 
+body.dark-mode .accounts .box-container .box{
+   background-color: var(--black-700);
+   border: 1px solid var(--light-bg);
+}
+
 .accounts .box-container .box p{
    font-size: 2rem;
    color:var(--light-color);
    margin: 1rem 0;
 }
 
+body.dark-mode .accounts .box-container .box p{
+   color: var(--black-200);
+}
+
 .accounts .box-container .box p span{
    color:var(--red-600);
 }
 
-.contacts .box-container{
+body.dark-mode .accounts .box-container .box p span{
+   color: var(--red-200);
+}
+
+.messages .box-container{
    display: grid;
    grid-template-columns: repeat(auto-fit, 33rem);
    gap:1.5rem;
@@ -551,7 +750,7 @@ section{
    justify-content: center;
 }
 
-.contacts .box-container .box{
+.messages .box-container .box{
    padding:2rem;
    padding-top: 1rem;
    border-radius: .5rem;
@@ -560,18 +759,29 @@ section{
    box-shadow: var(--box-shadow);
 }
 
-.contacts .box-container .box p{
+body.dark-mode .messages .box-container .box{
+   background-color: var(--black-700);
+   border: 1px solid var(--light-bg);
+}
+
+.messages .box-container .box p{
    line-height: 1.5;
    font-size: 2rem;
    color:var(--light-color);
    margin:1rem 0;
 }
 
-.contacts .box-container .box p span{
+body.dark-mode .messages .box-container .box p{
+   color: var(--black-200);
+}
+
+.messages .box-container .box p span{
    color:var(--red-600);
 }
 
-
+body.dark-mode .messages .box-container .box p span{
+   color: var(--red-200);
+}
 
 .add-categories form{
    max-width: 70rem;
@@ -581,6 +791,11 @@ section{
    border:var(--border);
    border-radius: .5rem;
    padding:2rem;
+}
+
+body.dark-mode .add-categories form{
+   background-color: var(--black-700);
+   border: 1px solid var(--light-bg);
 }
 
 .add-categories form .flex{
@@ -598,6 +813,10 @@ section{
    color:var(--light-color);
 }
 
+body.dark-mode .add-categories form span{
+   color: var(--black-200);
+}
+
 .add-categories form .box{
    font-size: 1.8rem;
    background-color: var(--red-100);
@@ -607,8 +826,10 @@ section{
    margin-top: 1.5rem;
 }
 
-
-
+body.dark-mode .add-categories form .box{
+   background-color: var(--black-200);
+   color: var(--black-500);
+}
 
 .show-categories .box-container{
    display: grid;
@@ -626,6 +847,11 @@ section{
    padding:2rem;
 }
 
+body.dark-mode .show-categories .box-container .box{
+   background-color: var(--black-700);
+   border: 1px solid var(--light-bg);
+}
+
 .show-categories .box-container .box img{
    width: 100%;
    height: 20rem;
@@ -638,6 +864,10 @@ section{
    color:var(--black);
    text-align: center;
    font-weight: bolder;
+}
+
+body.dark-mode .show-categories .box-container .box .category{
+   color: var(--black-200);
 }
 
 .show-categories .box-container .box .price{

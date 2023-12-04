@@ -7,13 +7,15 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:admin_login.php');
+   header('location:index.php');
 };
 
 if(isset($_POST['add_product'])){
 
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $quantity = $_POST['quantity'];
+   $quantity = filter_var($quantity, FILTER_SANITIZE_STRING);
    $price = $_POST['price'];
    $price = filter_var($price, FILTER_SANITIZE_STRING);
    $category = $_POST['category'];
@@ -46,8 +48,8 @@ if(isset($_POST['add_product'])){
       $message[] = 'product name already exist!';
    }else{
 
-      $insert_products = $conn->prepare("INSERT INTO `products`(name, details, price, category, image_01, image_02, image_03) VALUES(?,?,?,?,?,?,?)");
-      $insert_products->execute([$name, $details, $price, $category, $image_01, $image_02, $image_03]);
+      $insert_products = $conn->prepare("INSERT INTO `products`(name, details, quantity, price, category, image_01, image_02, image_03) VALUES(?,?,?,?,?,?,?,?)");
+      $insert_products->execute([$name, $details, $quantity, $price, $category, $image_01, $image_02, $image_03]);
 
       if($insert_products){
          if($image_size_01 > 2000000 OR $image_size_02 > 2000000 OR $image_size_03 > 2000000){
@@ -108,9 +110,25 @@ if(isset($_GET['delete'])){
    <h1 class="heading">add product</h1>
 
    <form action="" method="post" enctype="multipart/form-data">
+      <?php
+         if(isset($message)){
+            foreach($message as $message){
+               echo '
+               <div class="message">
+                  <span>'.$message.'</span>
+                  <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+               </div>
+               ';
+            }
+         }
+      ?>
       <div class="flex">
          <div class="inputBox">
             <input type="text" class="box" required maxlength="100" placeholder="enter product name (required)" name="name">
+         </div>
+
+         <div class="inputBox">
+            <input type="number" min="0" class="box" required max="9999999999" placeholder="enter product quantity (required)" onkeypress="if(this.value.length == 10) return false;" name="quantity">
          </div>
         
          <div class="inputBox">
@@ -118,7 +136,7 @@ if(isset($_GET['delete'])){
          </div>
 
          <div class="inputBox">
-            <textarea name="details" placeholder="enter product details (required)" class="box" required maxlength="500" cols="30" rows="10"></textarea>
+            <textarea name="details" placeholder="enter product details (required)" class="box" required maxlength="1500" cols="30" rows="10"></textarea>
          </div>
 
          <div class="inputBox">
@@ -164,29 +182,30 @@ if(isset($_GET['delete'])){
 
    <div class="box-container">
 
-   <?php
-      $select_products = $conn->prepare("SELECT * FROM `products`");
-      $select_products->execute();
-      if($select_products->rowCount() > 0){
-         while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){ 
-   ?>
-   <div class="box">
-      <img src="uploaded_img/<?= $fetch_products['image_01']; ?>" alt="">
-      <div class="name"><?= $fetch_products['name']; ?></div>
-      <div class="category"><?= $fetch_products['category']; ?></div>
-      <div class="price">$<span><?= $fetch_products['price']; ?></span></div>
-      <div class="details"><span><?= $fetch_products['details']; ?></span></div>
-      <div class="flex-btn">
-         <a href="update_product.php?update=<?= $fetch_products['id']; ?>" class="option-btn">update</a>
-         <a href="products.php?delete=<?= $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+      <?php
+         $select_products = $conn->prepare("SELECT * FROM `products`");
+         $select_products->execute();
+         if($select_products->rowCount() > 0){
+            while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){ 
+      ?>
+      <div class="box">
+         <img src="uploaded_img/<?= $fetch_products['image_01']; ?>" alt="">
+         <div class="name"><?= $fetch_products['name']; ?></div>
+         <div class="category">The category of this product is <?= $fetch_products['category']; ?></div>
+         <div class="quantity"><span><?= $fetch_products['quantity']; ?> Unit</span></div>
+         <div class="price">$<span><?= $fetch_products['price']; ?></span></div>
+         <div class="details"><span><?= $fetch_products['details']; ?></span></div>
+         <div class="flex-btn">
+            <a href="update_product.php?update=<?= $fetch_products['id']; ?>" class="option-btn">update</a>
+            <a href="products.php?delete=<?= $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+         </div>
       </div>
-   </div>
-   <?php
+      <?php
+            }
+         }else{
+            echo '<p class="empty">no products added yet!</p>';
          }
-      }else{
-         echo '<p class="empty">no products added yet!</p>';
-      }
-   ?>
+      ?>
    
    </div>
 

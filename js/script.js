@@ -1,3 +1,5 @@
+
+// the managing of the users profile in the navigation bar.
 let profile = document.querySelector('.header .flex .profile');
 let navbar = document.querySelector('.header .flex .navbar');
 
@@ -16,6 +18,8 @@ window.onscroll = () =>{
    navbar.classList.remove('active');
 }
 
+
+// Displaying of the images in the main image in the quick view.
 let mainImage = document.querySelector('.quick-view .box .row .image-container .main-image img');
 let subImages = document.querySelectorAll('.quick-view .box .row .image-container .sub-image img');
 
@@ -26,22 +30,8 @@ subImages.forEach(images =>{
    }
 });
 
-let themeToggler = document.querySelector('#theme-toggler');
-
-themeToggler.onclick = () =>{
-   themeToggler.classList.toggle("fa-sun");
-   if(themeToggler.classList.contains('fa-sun')){
-      document.querySelector('body').classList.add('active');
-      
-   }else{
-      document.querySelector('body').classList.remove('active');
-   }
-}
-
-
-
-
-/*// JavaScript for dark mode persistence
+// Changing the theme of the design of the web application to the dark mode.
+// JavaScript for dark mode persistence
 window.addEventListener('DOMContentLoaded', () => {
     const themeToggler = document.querySelector('#theme-toggler');
     const body = document.body;
@@ -68,7 +58,28 @@ window.addEventListener('DOMContentLoaded', () => {
             themeToggler.classList.remove('fa-sun');
         }
     });
-});*/
+});
+
+
+
+
+/*
+let themeToggler = document.querySelector('#theme-toggler');
+
+themeToggler.onclick = () =>{
+   themeToggler.classList.toggle("fa-sun");
+   if(themeToggler.classList.contains('fa-sun')){
+      document.querySelector('body').classList.add('active');
+      
+   }else{
+      document.querySelector('body').classList.remove('active');
+   }
+}
+
+*/
+
+
+
 
 /*
 

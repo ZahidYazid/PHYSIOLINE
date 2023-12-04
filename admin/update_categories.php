@@ -7,7 +7,7 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:admin_login.php');
+   header('location:index.php');
 }
 
 if(isset($_POST['update'])){
@@ -78,6 +78,18 @@ if(isset($_POST['update'])){
          while($fetch_categories = $select_categories->fetch(PDO::FETCH_ASSOC)){ 
    ?>
    <form action="" method="post" enctype="multipart/form-data">
+      <?php
+         if(isset($message)){
+            foreach($message as $message){
+               echo '
+               <div class="message">
+                  <span>'.$message.'</span>
+                  <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+               </div>
+               ';
+            }
+         }
+      ?>
       <input type="hidden" name="category_id" value="<?= $fetch_categories['category_id']; ?>">
       <input type="hidden" name="category_old_image_" value="<?= $fetch_categories['category_image']; ?>">
 

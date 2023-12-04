@@ -1,25 +1,15 @@
-<?php
-   if(isset($message)){
-      foreach($message as $message){
-         echo '
-         <div class="message">
-            <span>'.$message.'</span>
-            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-         </div>
-         ';
-      }
-   }
-?>
+
 
 <header class="header">
 
    <section class="flex">
 
-      <a href="admin/dashboard.php" class="logo">Admin<span>Panel</span></a>
+      <a href="dashboard.php" class="logo"><img src="images/Logo.png" alt=""></a>
 
       <nav class="navbar">
          <a href="dashboard.php">home</a>
          <a href="products.php">products</a>
+         <a href="categories.php">categories</a>
          <a href="placed_orders.php">orders</a>
          <a href="admin_accounts.php">admins</a>
          <a href="users_accounts.php">users</a>
@@ -28,6 +18,7 @@
 
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="theme-toggler" class="fas fa-moon"></div>
          <div id="user-btn" class="fas fa-user"></div>
       </div>
 
