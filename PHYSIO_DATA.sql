@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 04, 2023 at 06:20 AM
+-- Generation Time: Dec 09, 2023 at 06:20 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -63,7 +63,8 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`id`, `user_id`, `pid`, `name`, `price`, `quantity`, `image`) VALUES
 (19, 13, 1, 'QUADRICEPS – TANNAC', 2000, 1, 'GNC14-1 image3.png'),
-(20, 13, 4, 'Chattanooga Intelect Mobile 2 Combo Unit', 3000, 1, 'intelect-01.png');
+(20, 13, 4, 'Chattanooga Intelect Mobile 2 Combo Unit', 3000, 1, 'intelect-01.png'),
+(21, 13, 6, 'Breg Polar Care Wave Cold Compression System', 225, 1, 'POLAR-CARE-WAVE-UNIT-01.png');
 
 -- --------------------------------------------------------
 
@@ -223,13 +224,6 @@ CREATE TABLE `wishlist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `wishlist`
---
-
-INSERT INTO `wishlist` (`id`, `user_id`, `pid`, `name`, `price`, `image`) VALUES
-(22, 13, 6, 'Breg Polar Care Wave Cold Compression System', 225, 'POLAR-CARE-WAVE-UNIT-01.png');
-
---
 -- Indexes for dumped tables
 --
 
@@ -295,7 +289,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `categories`

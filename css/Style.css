@@ -125,7 +125,7 @@ select {
    font-size: 1.8rem;
    border: 1px solid #ccc;
    box-shadow: var(--box-shadow);
-   background-color: var(--red-500);
+   background-color: var(--red-600);
    border-radius: .5rem;
    outline: none;
    width: 30rem;
@@ -150,7 +150,6 @@ select option {
    color: var(--black-600);
    border: 1px solid #ccc;
    box-shadow: var(--box-shadow);
-
 }
 
     /* Style for hover and focus states */
@@ -162,9 +161,14 @@ select:focus {
 }
 
 body.dark-mode select {
-    background-color: var(--black-800);
+    background-color: var(--red-600);
     color: var(--white-color);
     /* Other dark mode styles */
+}
+
+body.dark-mode select:hover{
+   background-color: var(--black-500);
+   color: var(--red-200);
 }
 
 .heading{
@@ -751,7 +755,7 @@ body.dark-mode .products .box-container .box{
 
 .products .box-container .box .name{
    font-size: 2rem;
-   color:var(--black);
+   color:var(--black-900);
 }
 
 body.dark-mode .products .box-container .box .name{
@@ -769,7 +773,7 @@ body.dark-mode .products .box-container .box .name{
    padding:1rem;
    border:var(--border);
    font-size: 1.8rem;
-   color:var(--black);
+   color:var(--black-900);
    border-radius: .5rem;
 }
 
@@ -785,7 +789,7 @@ body.dark-mode .products .box-container .box .flex .qty{
    padding-top: .9rem;
    padding-bottom: .9rem;
    font-size: 2rem;
-   color:var(--red);
+   color:var(--red-600);
    border:var(--border);
    border-radius: .5rem;
 }

@@ -194,6 +194,10 @@ ERD for Online Physiotherapy Product Store:
 	CategoryName
 	CategoryImage
 
+- Admins table:
+	AdminID (PK)
+	Name
+	Password
 
 Logical DFD for Online Seller of Physiotherapy Products:
 1-	External Entities:

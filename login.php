@@ -2,6 +2,8 @@
 
 include 'connect.php';
 
+$message = []; // Initialize $message array
+
 session_start();
 
 if(isset($_SESSION['user_id'])){
@@ -24,10 +26,12 @@ if(isset($_POST['submit'])){
    if($select_user->rowCount() > 0){
       $_SESSION['user_id'] = $row['id'];
       header('location:index.php');
-      $message[] = 'login successful!';
+      $message[] = 'Login successful!';
    }else{
       $message[] = 'incorrect username or password!';
    }
+
+   var_dump($message); // Add this line to debug
 
 }
 
@@ -91,6 +95,9 @@ if(isset($_POST['submit'])){
    </form>
 
 </section>
+
+
+
 
 <script type="text/javascript">
    function eye() {
