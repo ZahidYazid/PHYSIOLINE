@@ -4,55 +4,67 @@ include 'connect.php';
 
 $message = []; // Initialize $message array
 
+// Check conditions during the registration process and add messages accordingly
+if ($registration_successful_condition) {
+    // Add a success message if registration is successful
+    $message[] = 'Registered successfully, login now please!';
+} else {
+    // Add an error message if registration fails
+    $message[] = 'Registration failed. Please try again later.';
+}
+
 session_start();
 
-if(isset($_SESSION['user_id'])){
-   $user_id = $_SESSION['user_id'];
-}else{
-   $user_id = '';
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+} else {
+    $user_id = '';
 }
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
-   $name = $_POST['name'];
-   $name = filter_var($name, FILTER_SANITIZE_STRING);
-   $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
-   $pass = sha1($_POST['pass']);
-   $pass = filter_var($pass, FILTER_SANITIZE_STRING);
-   $cpass = sha1($_POST['cpass']);
-   $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
-   $image = $_FILES['image']['name'];
-   $image_size = $_FILES['image']['size'];
-   $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folder = 'uploaded_img/'.$image; 
+    $name = $_POST['name'];
+    $name = filter_var($name, FILTER_SANITIZE_STRING);
+    $email = $_POST['email'];
+    $email = filter_var($email, FILTER_SANITIZE_STRING);
+    $pass = sha1($_POST['pass']);
+    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+    $cpass = sha1($_POST['cpass']);
+    $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
+    $image = $_FILES['image']['name'];
+    $image_size = $_FILES['image']['size'];
+    $image_tmp_name = $_FILES['image']['tmp_name'];
+    $image_folder = 'uploaded_img/' . $image;
 
 
-   $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
-   $select_user->execute([$email]);
-   $row = $select_user->fetch(PDO::FETCH_ASSOC);
+    $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
+    $select_user->execute([$email]);
+    $row = $select_user->fetch(PDO::FETCH_ASSOC);
 
-   if($select_user->rowCount() > 0){
-      $message[] = 'user already exist!';
-   }else{
-      if($pass != $cpass){
-         $message[] = 'confirm password not matched!';
-      }else{
-         try {
-            $insert_user = $conn->prepare("INSERT INTO `users` (name, email, password, image) VALUES (?, ?, ?, ?)");
-            $insert_user->execute([$name, $email, $cpass, $image]);
-            if ($insert_user->rowCount() > 0) {
-               $message[] = 'Registered successfully, login now please!';
-            } else {
-               $message[] = 'Registration failed. Please try again later.';}
+    if ($select_user->rowCount() > 0) {
+        $message[] = 'user already exist!';
+    } else {
+        if ($pass != $cpass) {
+            $message[] = 'confirm password not matched!';
+        } else {
+            try {
+                $insert_user = $conn->prepare("INSERT INTO `users` (name, email, password, image) VALUES (?, ?, ?, ?)");
+                $insert_user->execute([$name, $email, $cpass, $image]);
+                if ($insert_user->rowCount() > 0) {
+                    $message[] = 'Registered successfully, login now please!';
+                } else {
+                    $message[] = 'Registration failed. Please try again later.';
+                }
             } catch (PDOException $e) {
-               $message[] = 'Database Error: ' . $e->getMessage();
+                $message[] = 'Database Error: ' . $e->getMessage();
             }
-      }
-
-   }   
+        }
+    }
 }
 
+// Return messages as JSON
+//header('Content-Type: application/json');
+//echo json_encode($message);
 ?>
 
 

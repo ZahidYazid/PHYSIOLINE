@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 09, 2023 at 06:20 PM
+-- Generation Time: Dec 13, 2023 at 08:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -62,9 +62,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `pid`, `name`, `price`, `quantity`, `image`) VALUES
-(19, 13, 1, 'QUADRICEPS – TANNAC', 2000, 1, 'GNC14-1 image3.png'),
-(20, 13, 4, 'Chattanooga Intelect Mobile 2 Combo Unit', 3000, 1, 'intelect-01.png'),
-(21, 13, 6, 'Breg Polar Care Wave Cold Compression System', 225, 1, 'POLAR-CARE-WAVE-UNIT-01.png');
+(33, 24, 1, 'QUADRICEPS – TANNAC', 2000, 1, 'GNC14-1 image3.png'),
+(34, 24, 4, 'Chattanooga Intelect Mobile 2 Combo Unit', 3000, 1, 'intelect-01.png');
 
 -- --------------------------------------------------------
 
@@ -94,6 +93,28 @@ INSERT INTO `categories` (`category_id`, `category_name`, `category_image`) VALU
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `inventory`
+--
+
+CREATE TABLE `inventory` (
+  `product_id` int(100) NOT NULL,
+  `stock_quantity` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `inventory`
+--
+
+INSERT INTO `inventory` (`product_id`, `stock_quantity`) VALUES
+(22, 10),
+(23, 20),
+(24, 21),
+(1, 20),
+(2, 25);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `messages`
 --
 
@@ -117,7 +138,23 @@ INSERT INTO `messages` (`id`, `user_id`, `name`, `image`, `email`, `number`, `su
 (2, 13, 'ane ahmed', 'manager.png', 'aaaa@test.com', '5', 'therapy', 'I like this therapy machine.'),
 (3, 0, 'James', NULL, 'james@gmail.com', '4', 'product', 'Here is a perfect products.'),
 (4, 21, 'ahmed ali', 'admin.png', 'ahmed@ahmed.com', '5', 'therapy', 'The therapy machine is helpful.'),
-(5, 0, 'Kamel', NULL, 'Kamel@gmail.com', '3', 'Table product', 'Tables are not new model.');
+(5, 0, 'Kamel', NULL, 'Kamel@gmail.com', '3', 'Table product', 'Tables are not new model.'),
+(48, 0, 'james', NULL, 'james@test.com', '4', 'product', 'I found a perfect product but I cannot register. how I can do it'),
+(49, 0, 'ali', NULL, 'ali@test.com', '5', 'Product', 'Actually, I want buy a some machine from this site.'),
+(50, 0, 'Zahid', NULL, 'zahid@test.com', '5', 'Product', 'I like these products.'),
+(51, 24, 'Zahid', 'admin.png', 'zahid@test.com', '4', 'Product', 'Do you have a table massage.');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `order`
+-- (See below for the actual view)
+--
+CREATE TABLE `order` (
+`order_id` int(100)
+,`product_id` int(100)
+,`quantity` int(100)
+);
 
 -- --------------------------------------------------------
 
@@ -144,7 +181,42 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `name`, `number`, `email`, `method`, `address`, `total_products`, `total_price`, `placed_on`, `payment_status`) VALUES
-(1, 13, 'ane ahmed', '4', 'test@gmail.com', 'cash on delivery', 'flat no. 111, main st, NYC, NY, USA - 111111', 'SEMI-REPLATED ERGOCYCLE – CARDIO 650 (1500 x 1) - ARM ERGOCYCLE – CARDIO 720 (1500 x 2) - QUADRICEPS – TANNAC (2000 x 3) - ', 10500, '2023-11-06', '');
+(8, 13, 'Ahmed hocine', '2345433456', 'aaaa@test.com', 'cash on delivery', 'flat no. 1, main street, Brooklyn, NY, US - 23454', 'QUADRICEPS – TANNAC (2000 x 1) - SEMI-REPLATED ERGOCYCLE – CARDIO 650 (1500 x 1) - ', 3500, '2023-12-12', 'completed'),
+(9, 13, 'Ahmed hocine', '2345433456', 'aaaa@test.com', 'cash on delivery', 'flat no. 1, main street, Brooklyn, NY, US - 23443', 'ARM ERGOCYCLE – CARDIO 720 (1500 x 1) - Chattanooga Intelect Mobile 2 Combo Unit (3000 x 1) - ', 4500, '2023-12-12', 'completed'),
+(10, 23, 'ali', '2345435678', 'ali@test.com', 'cash on delivery', 'flat no. 1, main street, Brooklyn, NY, US - 23123', 'SEMI-REPLATED ERGOCYCLE – CARDIO 650 (1500 x 1) - Breg Polar Care Wave Cold Compression System (225 x 1) - ', 1725, '2023-12-13', 'pending');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `order_id` int(100) NOT NULL,
+  `product_id` int(100) NOT NULL,
+  `quantity` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`order_id`, `product_id`, `quantity`) VALUES
+(5, 0, 0),
+(6, 0, 0),
+(6, 0, 0),
+(6, 0, 0),
+(6, 0, 0),
+(6, 0, 0),
+(6, 0, 0),
+(7, 0, 0),
+(7, 0, 0),
+(8, 1, 1),
+(8, 2, 1),
+(9, 3, 1),
+(9, 4, 1),
+(10, 2, 1),
+(10, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -169,7 +241,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `category`, `details`, `price`, `quantity`, `image_01`, `image_02`, `image_03`) VALUES
-(1, 'QUADRICEPS – TANNAC', 'Exercise', 'Kinesitherapie, Rééducation Fonctionnelle, renforcement musculaire, tannac. Length: 53.15 inches. Width: 39.37 inches. Maximum user weight: 330.69 pounds.', 2000, 10, 'GNC14-1 image3.png', 'GNC14-5 image1.png', 'GNC14-9 image2.png'),
+(1, 'QUADRICEPS – TANNAC', 'Exercise', 'Kinesitherapie, Rééducation Fonctionnelle, renforcement musculaire, tannac. Length: 53.15 inches. Width: 39.37 inches. Maximum user weight: 330.69 pounds.', 2000, 15, 'GNC14-1 image3.png', 'GNC14-5 image1.png', 'GNC14-9 image2.png'),
 (2, 'SEMI-REPLATED ERGOCYCLE – CARDIO 650', 'Exercise', 'Cardio, ergocycle, Cardiac Rehabilitation, Bariatric Care, techmed. Length: 102.36 inches. Width: 41.34 inches. Maximum user weight: 551.16 pounds. Display: Power developed (watts), braking setpoint (watts), speed (rpm and km/h), distance (km), time (min:sec).', 1500, 20, 'car650-4 image2.png', 'car650-3 image3.png', 'car650-5 image1.png'),
 (3, 'ARM ERGOCYCLE – CARDIO 720', 'Exercise', 'Cardio, ergocycle, Cardiac Rehabilitation, techmed. Length: 24.41 inches.\r\nWidth: 19.69 inches.\r\nMaximum user weight: 551.16 pounds.\r\nDisplay: Power developed (watts), braking setpoint (watts), speed (km/h and rpm), time (min:sec).', 1500, 25, 'cardio720-9 image1.png', 'cardio720-4 image3.png', 'cardio720-12 image2.png'),
 (4, 'Chattanooga Intelect Mobile 2 Combo Unit', 'Electrotherapy', 'Chattanooga Intelect Mobile Combo is a dual frequency ultrasound device combined with 2 channel stimulation.\r\n\r\nFeatures\r\n• 1 and 3 MHz ultrasound frequencies\r\n• Variable duty cycle outputs of 16 Hz, 48 Hz, or 100 Hz for ultrasound\r\n• 15 user-defined memory positions\r\n• Backlit LCD display for better visibility in low light settings.\r\n\r\nTechnical\r\n• Mains Power: 120-240VAC, 50-60Hz\r\n• Weight: 3kg\r\n• Dimensions: (L x W x H) 33 x 29 x 17.3cm.', 3000, 12, 'intelect-01.png', 'intelect-02.png', 'intelect-03.png'),
@@ -206,7 +278,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`) VALUES
 (13, 'ane ahmed', 'aaaa@test.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'manager.png'),
-(21, 'ahmed ali', 'ahmed@ahmed.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'admin.png');
+(21, 'ahmed ali', 'ahmed@ahmed.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'admin.png'),
+(22, 'james jack', 'james@test.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'admin.png'),
+(23, 'ali', 'ali@test.com', '8cb2237d0679ca88db6464eac60da96345513964', 'user.png'),
+(24, 'Zahid', 'zahid@test.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'admin.png');
 
 -- --------------------------------------------------------
 
@@ -222,6 +297,15 @@ CREATE TABLE `wishlist` (
   `price` int(100) NOT NULL,
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `order`
+--
+DROP TABLE IF EXISTS `order`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `physio_data`.`order`  AS SELECT `physio_data`.`order_details`.`order_id` AS `order_id`, `physio_data`.`order_details`.`product_id` AS `product_id`, `physio_data`.`order_details`.`quantity` AS `quantity` FROM `physio_data`.`order_details` ORDER BY `physio_data`.`order_details`.`product_id` ASC ;
 
 --
 -- Indexes for dumped tables
@@ -289,7 +373,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -301,13 +385,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -319,13 +403,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

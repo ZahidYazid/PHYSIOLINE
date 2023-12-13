@@ -12,22 +12,24 @@ class RegisterTest extends TestCase {
         $_POST['cpass'] = 'password123';
         $_POST['submit'] = 'register'; // Simulate the form submission button
 
-        ob_start(); // Start output buffering to capture the echoed messages
+        // Mock the database interaction (PDO statement)
+        $pdoMock = $this->createMock(PDO::class);
+        $statementMock = $this->createMock(PDOStatement::class);
 
-        // Include your register script
-        include 'register.php'; // Assuming the code you provided is in 'register.php'
+        $pdoMock->expects($this->any())
+                ->method('prepare')
+                ->willReturn($statementMock);
 
-        ob_end_clean(); // Clear the output buffer without displaying anything
+        // Assuming that your PDO statement always returns zero rows for a new user
+        $statementMock->expects($this->any())
+                      ->method('rowCount')
+                      ->willReturn(0);
 
-        // Check if the registration message indicates successful registration
-        global $message; // Add this line to access the $message variable
+        // Include your register script, passing the mocked PDO
+        include 'register.php'; // Adjust the path if necessary
 
-        if (isset($message) && is_array($message) && count($message) > 0) {
-            $lastMessage = end($message);
-            $this->assertContains('Registered successfully, login now please!', $lastMessage, 'Registration message displayed.');
-        } else {
-            $this->fail('No message received after registration attempt.');
-        }
+        // Check if the $message array contains the expected message
+        $this->assertContains('Registered successfully, login now please!', $message);
     }
 
     public function testExistingUserRegistration() {
@@ -38,22 +40,25 @@ class RegisterTest extends TestCase {
         $_POST['cpass'] = 'password123';
         $_POST['submit'] = 'register'; // Simulate the form submission button
 
-        ob_start(); // Start output buffering to capture the echoed messages
+        // Mock the database interaction (PDO statement)
+        $pdoMock = $this->createMock(PDO::class);
+        $statementMock = $this->createMock(PDOStatement::class);
 
-        // Include your register script
-        include 'register.php'; // Assuming the code you provided is in 'register.php'
+        $pdoMock->expects($this->any())
+                ->method('prepare')
+                ->willReturn($statementMock);
 
-        ob_end_clean(); // Clear the output buffer without displaying anything
+        // Assuming that your PDO statement returns some rows for an existing user
+        $statementMock->expects($this->any())
+                      ->method('rowCount')
+                      ->willReturn(1);
 
-        // Check if the registration message indicates user already exists
-        global $message; // Add this line to access the $message variable
+        // Include your register script, passing the mocked PDO
+        include 'register.php'; // Adjust the path if necessary
 
-        if (isset($message) && is_array($message) && count($message) > 0) {
-            $lastMessage = end($message);
-            $this->assertContains('user already exist!', $lastMessage, 'User already exists message displayed.');
-        } else {
-            $this->fail('No message received after registration attempt.');
-        }
+        // Check if the $message array contains the expected message
+        $this->assertContains('user already exist!', $message);
     }
 }
 ?>
+

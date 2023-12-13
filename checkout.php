@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include 'connect.php';
 
 session_start();
@@ -14,15 +17,15 @@ if(isset($_SESSION['user_id'])){
 if(isset($_POST['order'])){
 
    $name = $_POST['name'];
-   $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $name = filter_var($name, FILTER_SANITIZE_SPECIAL_CHARS);
    $number = $_POST['number'];
-   $number = filter_var($number, FILTER_SANITIZE_STRING);
+   $number = filter_var($number, FILTER_SANITIZE_SPECIAL_CHARS);
    $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
+   $email = filter_var($email, FILTER_SANITIZE_SPECIAL_CHARS);
    $method = $_POST['method'];
-   $method = filter_var($method, FILTER_SANITIZE_STRING);
+   $method = filter_var($method, FILTER_SANITIZE_SPECIAL_CHARS);
    $address = 'flat no. '. $_POST['flat'] .', '. $_POST['street'] .', '. $_POST['city'] .', '. $_POST['state'] .', '. $_POST['country'] .' - '. $_POST['pin_code'];
-   $address = filter_var($address, FILTER_SANITIZE_STRING);
+   $address = filter_var($address, FILTER_SANITIZE_SPECIAL_CHARS);
    $total_products = $_POST['total_products'];
    $total_price = $_POST['total_price'];
 
@@ -33,6 +36,23 @@ if(isset($_POST['order'])){
 
       $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price) VALUES(?,?,?,?,?,?,?,?)");
       $insert_order->execute([$user_id, $name, $number, $email, $method, $address, $total_products, $total_price]);
+
+
+      $orderId = $conn->lastInsertId(); // Get the ID of the inserted order
+
+      // Loop through cart items to insert into order_details
+      $select_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
+      $select_cart->execute([$user_id]);
+      while($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)){
+         $productId = $fetch_cart['pid'];
+         $quantity = $fetch_cart['quantity'];
+
+         // Insert each product into order_details
+         $insert_order_details = $conn->prepare("INSERT INTO `order_details`(order_id, product_id, quantity) VALUES(?,?,?)");
+         $insert_order_details->execute([$orderId, $productId, $quantity]);
+      }
+
+
 
       $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
       $delete_cart->execute([$user_id]);

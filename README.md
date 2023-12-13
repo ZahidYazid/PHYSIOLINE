@@ -194,6 +194,15 @@ ERD for Online Physiotherapy Product Store:
 	CategoryName
 	CategoryImage
 
+- Order_Details table:
+	OrderID (PK)
+	ProductID (FK)
+	Quantity
+
+- Inventory table:
+	ProductID (PK)
+	Quantity
+
 - Admins table:
 	AdminID (PK)
 	Name
@@ -213,6 +222,8 @@ Logical DFD for Online Seller of Physiotherapy Products:
 	-	Place Order: Users can confirm and place their orders.
 	-	Manage Products (Admin): Administrators can manage product listings.
 	-	Manage Orders (Admin): Administrators can manage orders and customer data.
+	-	Manage Inventory (Admin): Administrators can manage inventory and products data.
+	-	Manage users feedback (Admin): Administrators can manage User’s messages and customer data.
 3-	Data Stores:
 	-	Product Database: Stores product information, including names, descriptions, prices, and stock quantities.
 	-	Product category Database: Stores product category information, including categories names and categories images.   
